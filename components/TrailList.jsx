@@ -5,7 +5,7 @@ import TrailCard from "./TrailCard";
 const TrailList = () => (
   <Container className="mt-3" id="hikes">
     <Row>
-      <Col md={{ span: 6, offset: 3 }}>
+      <Col lg={{ span: 6, offset: 3 }}>
         {list.trails.map((trail) => (
           <TrailCard trail={trail} />
         ))}

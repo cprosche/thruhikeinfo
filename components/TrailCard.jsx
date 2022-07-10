@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Card } from "react-bootstrap";
 
 const TrailCard = ({
@@ -7,8 +8,22 @@ const TrailCard = ({
     <Card.Body>
       <Card.Title>{name}</Card.Title>
       <Card.Text>Length: {length} miles</Card.Text>
-      <Card.Text>Terminus A: {terminusA}</Card.Text>
-      <Card.Text>Terminus B: {terminusB}</Card.Text>
+      <Card.Text>
+        Terminus A:{" "}
+        <Link
+          href={`https://maps.google.com/?q=${terminusA.location.latitude},${terminusA.location.longitude}`}
+        >
+          {terminusA.name}
+        </Link>
+      </Card.Text>
+      <Card.Text>
+        Terminus B:{" "}
+        <Link
+          href={`https://maps.google.com/?q=${terminusB.location.latitude},${terminusB.location.longitude}`}
+        >
+          {terminusB.name}
+        </Link>
+      </Card.Text>
       <Card.Text>{description}</Card.Text>
     </Card.Body>
   </Card>
