@@ -1,3 +1,7 @@
-export default function Header({ title }) {
-  return <h1 className="title">{title}</h1>
+const Header = () => {
+  return (
+    <div>Header</div>
+  )
 }
+
+export default Header
