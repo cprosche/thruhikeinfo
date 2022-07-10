@@ -1,3 +1,4 @@
+import { countryCodes } from "data/countryCodes";
 import Link from "next/link";
 import { Card } from "react-bootstrap";
 
@@ -10,13 +11,17 @@ const TrailCard = ({
     <Card className="mb-3">
       <Card.Body>
         <Card.Title>{name}</Card.Title>
-        <Card.Text>Length: {length} miles, {daysToHike} days at {avgMilesPerDay} miles per day.</Card.Text>
+        <Card.Text>Country: {countryCodes[terminusA.country]}</Card.Text>
+        <Card.Text>
+          Length: {length} miles, {daysToHike} days at {avgMilesPerDay} miles
+          per day.
+        </Card.Text>
         <Card.Text>
           Terminus A:{" "}
           <Link
             href={`https://maps.google.com/?q=${terminusA.location.latitude},${terminusA.location.longitude}`}
           >
-            {terminusA.name}
+            {terminusA.name + ", " + terminusA.city + ", " + terminusA.region}
           </Link>
         </Card.Text>
         <Card.Text>
@@ -24,7 +29,7 @@ const TrailCard = ({
           <Link
             href={`https://maps.google.com/?q=${terminusB.location.latitude},${terminusB.location.longitude}`}
           >
-            {terminusB.name}
+            {terminusB.name + ", " + terminusB.city + ", " + terminusB.region}
           </Link>
         </Card.Text>
       </Card.Body>

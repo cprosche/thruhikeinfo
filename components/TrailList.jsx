@@ -5,8 +5,9 @@ import TrailCard from "./TrailCard";
 const TrailList = () => (
   <Container className="mt-5" id="hikes">
     <Row>
-      <Col lg={12}>
-        <h2 className="text-center mb-3">Hikes</h2>
+      <Col lg={12} className="text-center">
+        <h2 className="mb-0">Thru Hikes</h2>
+        <p>{trails.length} hikes total</p>
       </Col>
       <Col lg={{ span: 6, offset: 3 }}>
         {trails.map((trail, index) => (
