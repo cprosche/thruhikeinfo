@@ -1,13 +1,14 @@
+import Head from "next/head";
 import Footer from "@components/Footer";
 import Header from "@components/Header";
-import { Button } from "react-bootstrap";
+import TrailList from "@components/TrailList";
 
 const Home = () => {
   return (
     <>
+      <Head></Head>
       <Header />
-      <div>Home</div>
-      <Button variant="success">Hello World</Button>
+      <TrailList />
       <Footer />
     </>
   );
