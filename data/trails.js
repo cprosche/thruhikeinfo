@@ -42,10 +42,10 @@ export const trails = [
       startDate: "April 1",
     },
     terminusB: {
-      name: "Bertha Trailhead, Waterton Park",
+      name: "Bertha Trailhead",
       country: "CA",
       region: "Alberta",
-      city: "AB T0k 2M0",
+      city: "Waterton Park",
       location: {
         latitude: 49.0470732590971,
         longitude: -113.91663117785163,
