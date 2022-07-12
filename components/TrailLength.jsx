@@ -3,25 +3,33 @@ import { useEffect, useState } from "react";
 const TrailLength = ({ length }) => {
   const avgMilesPerDay = 15;
   const daysToHike = Math.ceil(length / avgMilesPerDay);
-  const [hikingDuration, setHikingDuration] = useState(daysToHike);
+
+  const [avgMileage, setAvgMileage] = useState(15);
+  const [hikingDays, setHikingDays] = useState(Math.ceil(length / avgMileage));
+  const [hikingDuration, setHikingDuration] = useState(hikingDays);
   const [durationOption, setDurationOption] = useState("days");
 
   // changes displayed value for hike duration when user changes day/week/month option
   useEffect(() => {
     switch (durationOption) {
       case "days":
-        setHikingDuration(daysToHike);
+        setHikingDuration(hikingDays);
         break;
       case "weeks":
-        setHikingDuration(Math.ceil(daysToHike / 7));
+        setHikingDuration(Math.ceil(hikingDays / 7));
         break;
       case "months":
-        setHikingDuration(Math.ceil((daysToHike / 30.4) * 10) / 10);
+        setHikingDuration(Math.ceil((hikingDays / 30.4) * 10) / 10);
         break;
       default:
         break;
     }
-  }, [durationOption]);
+  }, [durationOption, setHikingDuration, hikingDays]);
+
+  // change the number of days hiking based on average mileage
+  useEffect(() => {
+    setHikingDays(Math.ceil(length / avgMileage));
+  }, [avgMileage, setHikingDays]);
 
   return (
     <>
@@ -37,7 +45,23 @@ const TrailLength = ({ length }) => {
         <option value="weeks">weeks</option>
         <option value="months">months</option>
       </select>{" "}
-      at {avgMilesPerDay} miles per day.
+      at{" "}
+      <input
+        style={{
+          border: "1px solid rgba(0,0,0,.175)",
+          height: 25,
+          width: 45,
+        }}
+        type="number"
+        defaultValue={avgMileage}
+        onChange={(event) => {
+          setAvgMileage(event.target.value);
+        }}
+        step={1}
+        min={1}
+        max={50}
+      />{" "}
+      miles per day.
     </>
   );
 };
