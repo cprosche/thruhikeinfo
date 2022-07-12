@@ -4,6 +4,7 @@ import TrailLength from "./TrailLength";
 import { countryCodes } from "data/countryCodes";
 
 const TrailCard = ({ trail: { name, length, terminusA, terminusB } }) => (
+  // TODO: improve layout
   <Card className="mb-3">
     <Card.Body>
       <Card.Title>{name}</Card.Title>
@@ -11,6 +12,7 @@ const TrailCard = ({ trail: { name, length, terminusA, terminusB } }) => (
       <Card.Text>
         <TrailLength length={length} />
       </Card.Text>
+      {/* TODO: create terminus component */}
       <Card.Text>
         Terminus A:{" "}
         <Link

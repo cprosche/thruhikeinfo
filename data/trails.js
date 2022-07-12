@@ -1,3 +1,4 @@
+// TODO: add more trails
 export const trails = [
   {
     name: "Appalachian Trail",

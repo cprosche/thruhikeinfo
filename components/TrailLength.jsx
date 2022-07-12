@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 
 const TrailLength = ({ length }) => {
-  const avgMilesPerDay = 15;
-  const daysToHike = Math.ceil(length / avgMilesPerDay);
-
   const [avgMileage, setAvgMileage] = useState(15);
   const [hikingDays, setHikingDays] = useState(Math.ceil(length / avgMileage));
   const [hikingDuration, setHikingDuration] = useState(hikingDays);

@@ -1,5 +1,6 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 
+// TODO: add about page
 const Header = () => (
   <Navbar bg="dark" variant="dark">
     <Container>

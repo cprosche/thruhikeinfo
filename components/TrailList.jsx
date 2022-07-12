@@ -3,11 +3,12 @@ import { Col, Container, FormControl, Row } from "react-bootstrap";
 import TrailCard from "./TrailCard";
 import { trails } from "data/trails";
 
+// TODO: add more filtering and sorting options
 const TrailList = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [trailsList, setTrailsList] = useState(trails);
 
-  // filter based on search term
+  // filters based on search term
   useEffect(() => {
     if (searchTerm === "") {
       setTrailsList(trails);
