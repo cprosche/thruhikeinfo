@@ -30,7 +30,7 @@ const TrailLength = ({ length }) => {
 
   return (
     <>
-      Length: {length} miles, {hikingDuration}{" "}
+      Length*: {length} miles, {hikingDuration}{" "}
       <select
         name=""
         id=""

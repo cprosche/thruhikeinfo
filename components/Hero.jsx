@@ -17,7 +17,7 @@ const Hero = () => (
     <h1 className="display-5 fw-bold">Want to hike?</h1>
     <div className="col-lg-6 mx-auto">
       <p className="lead mb-4">
-        Information to help you plan your next big hike.This website is currently a work in progress and there will be a lot more useful information here in the near future.
+        Information to help you plan your next big hike. This website is currently a work in progress and there will be a lot more useful information here in the near future.
       </p>
       <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
         <a

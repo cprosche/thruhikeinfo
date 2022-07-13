@@ -4,6 +4,7 @@ import TrailCard from "./TrailCard";
 import { trails } from "data/trails";
 
 // TODO: add more filtering and sorting options
+// TODO: change search to just hide components
 const TrailList = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [trailsList, setTrailsList] = useState(trails);
