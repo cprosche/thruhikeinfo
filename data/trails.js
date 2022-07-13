@@ -1,4 +1,7 @@
 // TODO: add more trails
+// TODO: add number of on trail miles AKA completeness of trail
+// TODO: add name and link to trail associations
+// TODO: add link to interactive online maps if they have one
 export const trails = [
   {
     name: "Appalachian Trail",
@@ -26,7 +29,6 @@ export const trails = [
       startDate: "June 1",
     },
     length: 2190,
-    description: "The most famous long trail.",
   },
   {
     name: "Continental Divide Trail",
@@ -54,7 +56,6 @@ export const trails = [
       startDate: "June 13",
     },
     length: 3100,
-    description: "The most desolate long trail.",
   },
   {
     name: "Pacific Crest Trail",
@@ -82,7 +83,6 @@ export const trails = [
       startDate: "June 26",
     },
     length: 2650,
-    description: "The west coast long trail.",
   },
   {
     name: "Arizona Trail",
@@ -110,7 +110,6 @@ export const trails = [
       startDate: "March 15",
     },
     length: 800,
-    description: "",
   },
   {
     name: "Colorado Trail",
@@ -138,7 +137,6 @@ export const trails = [
       startDate: "July 1",
     },
     length: 567,
-    description: "",
   },
   {
     name: "Ice Age Trail",
@@ -166,7 +164,6 @@ export const trails = [
       startDate: "September 1",
     },
     length: 1200,
-    description: "",
   },
   {
     name: "Florida Trail",
@@ -194,7 +191,6 @@ export const trails = [
       startDate: "January 1",
     },
     length: 1500,
-    description: "",
   },
   {
     name: "Superior Hiking Trail",
@@ -222,7 +218,6 @@ export const trails = [
       startDate: "September 1",
     },
     length: 310,
-    description: "",
   },
   {
     name: "Te Araroa",
@@ -250,7 +245,6 @@ export const trails = [
       startDate: "November 15",
     },
     length: 1850,
-    description: "",
   },
   {
     name: "Pacific Northwest Trail",
@@ -278,7 +272,6 @@ export const trails = [
       startDate: "June 15",
     },
     length: 1200,
-    description: "",
   },
   {
     name: "North Country Trail",
@@ -306,7 +299,6 @@ export const trails = [
       startDate: "N/a",
     },
     length: 4800,
-    description: "",
   },
   {
     name: "Long Trail",
@@ -334,6 +326,5 @@ export const trails = [
       startDate: "August 15",
     },
     length: 273,
-    description: "",
   },
 ];

@@ -10,6 +10,7 @@ const TrailCard = ({ trail: { name, length, terminusA, terminusB } }) => (
       <Card.Title className="mb-1">{name}</Card.Title>
       <Card.Text>Country: {countryCodes[terminusA.country]}</Card.Text>
       {/* TODO: create terminus component */}
+      {/* TODO: add loop trail support */}
     </Card.Body>
     <ListGroup className="list-group-flush">
       <ListGroup.Item>

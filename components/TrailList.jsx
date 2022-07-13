@@ -31,7 +31,7 @@ const TrailList = () => {
         <Col lg={{ span: 6, offset: 3 }} style={{ minHeight: 500 }}>
           <FormControl
             className="mb-3"
-            placeholder="Search"
+            placeholder="Search by trail name"
             onChange={(event) => setSearchTerm(event.target.value)}
           />
           {trailsList.length > 0 ? (
