@@ -327,4 +327,58 @@ export const trails = [
     },
     length: 273,
   },
+  {
+    name: "John Muir Trail",
+    type: "Linear",
+    terminusA: {
+      name: "Mist Trail & John Muir Trail Trailhead",
+      country: "US",
+      city: "Yosemite Valley",
+      region: "California",
+      location: {
+        latitude: 37.7329744,
+        longitude: -119.5577630,
+      },
+      startDate: "August 1",
+    },
+    terminusB: {
+      name: "Summit of Mount Whitney",
+      country: "US",
+      city: "Whitney Portal",
+      region: "California",
+      location: {
+        latitude: 36.5785165,
+        longitude: -118.2922642,
+      },
+      startDate: "August 1",
+    },
+    length: 211,
+  },
+  {
+    name: "Pinhoti Trail",
+    type: "Linear",
+    terminusA: {
+      name: "Sothern Terminus",
+      country: "US",
+      city: "Sylacuaga",
+      region: "Alabama",
+      location: {
+        latitude: 32.9727812,
+        longitude: -86.3480869,
+      },
+      startDate: "October 1",
+    },
+    terminusB: {
+      name: "Northern Terminus",
+      country: "US",
+      city: "Epworth",
+      region: "Georgia",
+      location: {
+        latitude: 34.8880530,
+        longitude: -84.5272224,
+      },
+      startDate: "October 1",
+    },
+    length: 335,
+  },
 ];
