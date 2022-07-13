@@ -197,34 +197,6 @@ export const trails = [
     description: "",
   },
   {
-    name: "Ice Age Trail",
-    type: "Linear",
-    terminusA: {
-      name: "Western Terminus",
-      country: "US",
-      region: "Wisconsin",
-      city: "Dresser",
-      location: {
-        latitude: 45.40014632640452,
-        longitude: -92.6494693607597,
-      },
-      startDate: "September 1",
-    },
-    terminusB: {
-      name: "Eastern Terminus",
-      country: "US",
-      region: "Wisconsin",
-      city: "Sturgeon Bay",
-      location: {
-        latitude: 44.875179450658145,
-        longitude: -87.43175103068305,
-      },
-      startDate: "September 1",
-    },
-    length: 1200,
-    description: "",
-  },
-  {
     name: "Superior Hiking Trail",
     type: "Linear",
     terminusA: {

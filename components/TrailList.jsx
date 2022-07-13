@@ -4,7 +4,6 @@ import TrailCard from "./TrailCard";
 import { trails } from "data/trails";
 
 // TODO: add more filtering and sorting options
-// TODO: fix search
 const TrailList = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [trailsList, setTrailsList] = useState(trails);
@@ -36,7 +35,7 @@ const TrailList = () => {
           />
           {trailsList.length > 0 ? (
             trailsList.map((trail, index) => (
-              <TrailCard trail={trail} key={index} />
+              <TrailCard trail={trail} key={trail.name} />
             ))
           ) : (
             <div>No results</div>
