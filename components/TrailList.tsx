@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
-import { Col, Container, FormControl, Row } from "react-bootstrap";
 import TrailCard from "./TrailCard";
 import { trails } from "../data/trails";
+import Container from "../node_modules/react-bootstrap/esm/Container";
+import Row from "../node_modules/react-bootstrap/esm/Row";
+import Col from "../node_modules/react-bootstrap/esm/Col";
+import FormControl from "../node_modules/react-bootstrap/esm/FormControl";
 
 // TODO: add more filtering and sorting options
 // TODO: change search to just hide components

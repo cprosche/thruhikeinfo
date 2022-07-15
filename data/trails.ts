@@ -1,22 +1,22 @@
-interface Location {
+export interface ILocation {
   latitude: number;
   longitude: number;
 }
 
-interface Terminus {
+export interface ITerminus {
   name: string;
   country: string;
   region: string;
   city: string;
-  location: Location;
+  location: ILocation;
   startDate: string;
 }
 
-interface Trail {
+export interface ITrail {
   name: string;
   type: string;
-  terminusA: Terminus;
-  terminusB: Terminus;
+  terminusA: ITerminus;
+  terminusB: ITerminus;
   length: number; // miles
 }
 
@@ -24,7 +24,7 @@ interface Trail {
 // TODO: add number of on trail miles AKA completeness of trail
 // TODO: add name and link to trail associations
 // TODO: add link to interactive online maps if they have one
-export const trails: Trail[] = [
+export const trails: ITrail[] = [
   {
     name: "Appalachian Trail",
     type: "Linear",

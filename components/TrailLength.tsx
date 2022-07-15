@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 
-const TrailLength = ({ length }) => {
+interface IProps {
+  length: number;
+}
+
+const TrailLength = ({ length }: IProps) => {
   const [avgMileage, setAvgMileage] = useState(15);
   const [hikingDays, setHikingDays] = useState(Math.ceil(length / avgMileage));
   const [hikingDuration, setHikingDuration] = useState(hikingDays);
@@ -52,7 +56,7 @@ const TrailLength = ({ length }) => {
         type="number"
         defaultValue={avgMileage}
         onChange={(event) => {
-          setAvgMileage(event.target.value);
+          setAvgMileage(event.target.valueAsNumber);
         }}
         step={1}
         min={1}
