@@ -1,8 +1,8 @@
 import Head from "next/head";
-import Footer from "@components/Footer";
-import Header from "@components/Header";
-import TrailList from "@components/TrailList";
-import Hero from "@components/Hero";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import TrailList from "../components/TrailList";
+import Hero from "../components/Hero";
 
 // TODO: add styling
 const Home = () => (

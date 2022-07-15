@@ -1,8 +1,30 @@
+interface Location {
+  latitude: number;
+  longitude: number;
+}
+
+interface Terminus {
+  name: string;
+  country: string;
+  region: string;
+  city: string;
+  location: Location;
+  startDate: string;
+}
+
+interface Trail {
+  name: string;
+  type: string;
+  terminusA: Terminus;
+  terminusB: Terminus;
+  length: number; // miles
+}
+
 // TODO: add more trails
 // TODO: add number of on trail miles AKA completeness of trail
 // TODO: add name and link to trail associations
 // TODO: add link to interactive online maps if they have one
-export const trails = [
+export const trails: Trail[] = [
   {
     name: "Appalachian Trail",
     type: "Linear",
@@ -337,7 +359,7 @@ export const trails = [
       region: "California",
       location: {
         latitude: 37.7329744,
-        longitude: -119.5577630,
+        longitude: -119.557763,
       },
       startDate: "August 1",
     },
@@ -358,7 +380,7 @@ export const trails = [
     name: "Pinhoti Trail",
     type: "Linear",
     terminusA: {
-      name: "Sothern Terminus",
+      name: "Southern Terminus",
       country: "US",
       city: "Sylacuaga",
       region: "Alabama",
@@ -374,8 +396,8 @@ export const trails = [
       city: "Epworth",
       region: "Georgia",
       location: {
-        latitude: 34.8880530,
-        longitude: -84.5272224,
+        latitude: 34.8882042398775,
+        longitude: -84.52724453124739,
       },
       startDate: "October 1",
     },

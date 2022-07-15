@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Card, ListGroup } from "react-bootstrap";
 import TrailLength from "./TrailLength";
-import { countryCodes } from "data/countryCodes";
+import { countryCodes } from "../data/countryCodes";
 
 const TrailCard = ({ trail: { name, length, terminusA, terminusB } }) => (
   // TODO: improve layout
