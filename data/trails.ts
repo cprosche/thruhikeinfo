@@ -471,6 +471,34 @@ export const trails: ITrail[] = [
     },
   },
   {
+    name: "Kungsleden",
+    type: "Linear",
+    length: 280,
+    offRoadLength: 280,
+    terminusA: {
+      name: "Northern Terminus",
+      country: "SE",
+      city: "Abisko",
+      region: "Sápmi",
+      location: {
+        latitude: 68.3578097,
+        longitude: 18.7777581,
+      },
+      startDate: null,
+    },
+    terminusB: {
+      name: "Southern Terminus",
+      country: "SE",
+      city: "Hamevan",
+      region: "Västerbotten",
+      location: {
+        latitude: 65.8149255,
+        longitude: 15.1051092,
+      },
+      startDate: null,
+    },
+  },
+  {
     name: "Great Divide Trail",
     type: "Linear",
     length: 700,
