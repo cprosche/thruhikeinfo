@@ -6,6 +6,7 @@ interface IProps {
   offRoadLength: number;
 }
 
+// TODO: improve pill responsive
 const TrailName = ({ name, length, offRoadLength }: IProps) => {
   const offRoadPercent = Math.ceil((offRoadLength / length) * 100);
   const offRoadDisplay = offRoadPercent

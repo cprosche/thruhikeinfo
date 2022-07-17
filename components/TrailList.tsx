@@ -7,7 +7,7 @@ import Col from "../node_modules/react-bootstrap/esm/Col";
 import FormControl from "../node_modules/react-bootstrap/esm/FormControl";
 
 // TODO: add more filtering and sorting options
-// TODO: change search to just hide components
+// TODO: change search to just display none components
 const TrailList = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [trailsList, setTrailsList] = useState(trails);
