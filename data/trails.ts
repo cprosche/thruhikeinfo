@@ -18,7 +18,7 @@ export interface ITrail {
   length: number; // miles
   offRoadLength: number;
   terminusA: ITerminus;
-  terminusB: ITerminus;
+  terminusB?: ITerminus;
 }
 
 // TODO: add more trails
@@ -113,7 +113,7 @@ export const trails: ITrail[] = [
     name: "Arizona Trail",
     type: "Linear",
     length: 800,
-    offRoadLength: 0,
+    offRoadLength: null,
     terminusA: {
       name: "Border Monument 102 Southern Terminus",
       country: "US",
@@ -253,7 +253,7 @@ export const trails: ITrail[] = [
     name: "Te Araroa",
     type: "Linear",
     length: 1850,
-    offRoadLength: 0,
+    offRoadLength: null,
     terminusA: {
       name: "Northern Terminus",
       country: "NZ",
@@ -281,7 +281,7 @@ export const trails: ITrail[] = [
     name: "Pacific Northwest Trail",
     type: "Linear",
     length: 1200,
-    offRoadLength: 0,
+    offRoadLength: null,
     terminusA: {
       name: "Chief Mountain Customs Parking Area",
       country: "US",
@@ -319,7 +319,7 @@ export const trails: ITrail[] = [
         latitude: 43.9367122149062,
         longitude: -72.94943596712082,
       },
-      startDate: "N/a",
+      startDate: null,
     },
     terminusB: {
       name: "Western Terminus",
@@ -330,7 +330,7 @@ export const trails: ITrail[] = [
         latitude: 47.5200937006863,
         longitude: -101.45217816584685,
       },
-      startDate: "N/a",
+      startDate: null,
     },
   },
   {
@@ -393,7 +393,7 @@ export const trails: ITrail[] = [
     name: "Pinhoti Trail",
     type: "Linear",
     length: 335,
-    offRoadLength: 0,
+    offRoadLength: null,
     terminusA: {
       name: "Southern Terminus",
       country: "US",
@@ -415,6 +415,23 @@ export const trails: ITrail[] = [
         longitude: -84.52724453124739,
       },
       startDate: "October 1",
+    },
+  },
+  {
+    name: "Wonderland Trail",
+    type: "Loop",
+    length: 93,
+    offRoadLength: 93,
+    terminusA: {
+      name: "Longmire",
+      country: "US",
+      city: "Packwood",
+      region: "Washington",
+      location: {
+        latitude: 46.75175661332915,  
+        longitude: -121.81178836363384,
+      },
+      startDate: "August 1",
     },
   },
 ];
