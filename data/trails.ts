@@ -24,6 +24,8 @@ export interface ITrail {
 // TODO: add more trails
 // TODO: add name and link to trail associations
 // TODO: add link to interactive online maps if they have one
+// TODO: add multi country support
+// TODO: add name alias support for details pages
 export const trails: ITrail[] = [
   {
     name: "Appalachian Trail",
@@ -428,10 +430,44 @@ export const trails: ITrail[] = [
       city: "Packwood",
       region: "Washington",
       location: {
-        latitude: 46.75175661332915,  
+        latitude: 46.75175661332915,
         longitude: -121.81178836363384,
       },
       startDate: "August 1",
+    },
+  },
+  {
+    name: "Timberline Trail",
+    type: "Loop",
+    length: 42,
+    offRoadLength: 42,
+    terminusA: {
+      name: "Timberline Lodge",
+      country: "US",
+      city: "Government Camp",
+      region: "Oregon",
+      location: {
+        latitude: 45.33066208433231,
+        longitude: -121.70905955162013,
+      },
+      startDate: "August 1",
+    },
+  },
+  {
+    name: "Tahoe Rim Trail",
+    type: "Loop",
+    length: 165,
+    offRoadLength: null,
+    terminusA: {
+      name: "64 Acres",
+      country: "US",
+      city: "Tahoe City",
+      region: "California",
+      location: {
+        latitude: 39.16507568164984,
+        longitude: -120.14732643423736,
+      },
+      startDate: "July 1",
     },
   },
 ];

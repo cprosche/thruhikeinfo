@@ -3,6 +3,8 @@ import '../styles/globals.css'
 
 // TODO: add google search console
 // TODO: SEO
+// TODO: make site open source
+// TODO: add site styling
 function Application({ Component, pageProps }) {
   return <Component {...pageProps} />
 }

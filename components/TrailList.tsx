@@ -10,16 +10,20 @@ import FormControl from "../node_modules/react-bootstrap/esm/FormControl";
 // TODO: change search to just display none components
 const TrailList = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [trailsList, setTrailsList] = useState(trails);
+  const [trailsList, setTrailsList] = useState(
+    trails.sort((a, b) => a.length - b.length)
+  );
 
   // filters based on search term
   useEffect(() => {
     if (searchTerm === "") {
       setTrailsList(trails);
     } else {
-      const newTrailList = trails.filter((trail) =>
-        trail.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+      const newTrailList = trails
+        .filter((trail) =>
+          trail.name.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        .sort((a, b) => a.length - b.length);
       setTrailsList(newTrailList);
     }
   }, [searchTerm, setTrailsList]);
