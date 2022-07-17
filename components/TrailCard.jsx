@@ -1,14 +1,16 @@
-import { Card, ListGroup } from "react-bootstrap";
+import { Card, ListGroup, Badge } from "react-bootstrap";
 import TrailLength from "./TrailLength";
 import { countryCodes } from "../data/countryCodes";
 import TrailTerminus from "./TrailTerminus";
+import TrailName from "./TrailName";
 
-// TODO: improve layout
 // TODO: add loop trail support
-const TrailCard = ({ trail: { name, length, terminusA, terminusB } }) => (
+const TrailCard = ({ trail: { name, length, offRoadLength, terminusA, terminusB } }) => (
   <Card className="mb-3">
     <Card.Body>
-      <Card.Title className="mb-1">{name}</Card.Title>
+      <Card.Title className="mb-1">
+        <TrailName name={name} length={length} offRoadLength={offRoadLength} />
+      </Card.Title>
       <Card.Text>Country: {countryCodes[terminusA.country]}</Card.Text>
     </Card.Body>
     <ListGroup className="list-group-flush">

@@ -15,9 +15,10 @@ export interface ITerminus {
 export interface ITrail {
   name: string;
   type: string;
+  length: number; // miles
+  offRoadLength: number;
   terminusA: ITerminus;
   terminusB: ITerminus;
-  length: number; // miles
 }
 
 // TODO: add more trails
@@ -28,6 +29,8 @@ export const trails: ITrail[] = [
   {
     name: "Appalachian Trail",
     type: "Linear",
+    length: 2190,
+    offRoadLength: 2190,
     terminusA: {
       name: "Peak of Springer Mountain",
       country: "US",
@@ -50,11 +53,12 @@ export const trails: ITrail[] = [
       },
       startDate: "June 1",
     },
-    length: 2190,
   },
   {
     name: "Continental Divide Trail",
     type: "Linear",
+    length: 3100,
+    offRoadLength: 2170,
     terminusA: {
       name: "Crazy Cook Monument",
       country: "US",
@@ -77,11 +81,12 @@ export const trails: ITrail[] = [
       },
       startDate: "June 13",
     },
-    length: 3100,
   },
   {
     name: "Pacific Crest Trail",
     type: "Linear",
+    length: 2650,
+    offRoadLength: 2650,
     terminusA: {
       name: "Pacific Crest Trail Southern Terminus",
       country: "US",
@@ -104,11 +109,12 @@ export const trails: ITrail[] = [
       },
       startDate: "June 26",
     },
-    length: 2650,
   },
   {
     name: "Arizona Trail",
     type: "Linear",
+    length: 800,
+    offRoadLength: 0,
     terminusA: {
       name: "Border Monument 102 Southern Terminus",
       country: "US",
@@ -131,11 +137,12 @@ export const trails: ITrail[] = [
       },
       startDate: "March 15",
     },
-    length: 800,
   },
   {
     name: "Colorado Trail",
     type: "Linear",
+    length: 567,
+    offRoadLength: 567,
     terminusA: {
       name: "Waterton Canyon Trailhead",
       country: "US",
@@ -158,11 +165,12 @@ export const trails: ITrail[] = [
       },
       startDate: "July 1",
     },
-    length: 567,
   },
   {
     name: "Ice Age Trail",
     type: "Linear",
+    length: 1200,
+    offRoadLength: 640,
     terminusA: {
       name: "Western Terminus",
       country: "US",
@@ -185,11 +193,12 @@ export const trails: ITrail[] = [
       },
       startDate: "September 1",
     },
-    length: 1200,
   },
   {
     name: "Florida Trail",
     type: "Linear",
+    length: 1500,
+    offRoadLength: 1300,
     terminusA: {
       name: "Southern Terminus",
       country: "US",
@@ -212,11 +221,12 @@ export const trails: ITrail[] = [
       },
       startDate: "January 1",
     },
-    length: 1500,
   },
   {
     name: "Superior Hiking Trail",
     type: "Linear",
+    length: 310,
+    offRoadLength: 310,
     terminusA: {
       name: "Southern Terminus",
       country: "US",
@@ -239,11 +249,12 @@ export const trails: ITrail[] = [
       },
       startDate: "September 1",
     },
-    length: 310,
   },
   {
     name: "Te Araroa",
     type: "Linear",
+    length: 1850,
+    offRoadLength: 0,
     terminusA: {
       name: "Northern Terminus",
       country: "NZ",
@@ -266,11 +277,12 @@ export const trails: ITrail[] = [
       },
       startDate: "November 15",
     },
-    length: 1850,
   },
   {
     name: "Pacific Northwest Trail",
     type: "Linear",
+    length: 1200,
+    offRoadLength: 0,
     terminusA: {
       name: "Chief Mountain Customs Parking Area",
       country: "US",
@@ -293,11 +305,12 @@ export const trails: ITrail[] = [
       },
       startDate: "June 15",
     },
-    length: 1200,
   },
   {
     name: "North Country Trail",
     type: "Linear",
+    length: 4800,
+    offRoadLength: 3188,
     terminusA: {
       name: "Long Trail Access",
       country: "US",
@@ -320,11 +333,12 @@ export const trails: ITrail[] = [
       },
       startDate: "N/a",
     },
-    length: 4800,
   },
   {
     name: "Long Trail",
     type: "Linear",
+    length: 273,
+    offRoadLength: 273,
     terminusA: {
       name: "Southern Terminus",
       country: "US",
@@ -347,11 +361,12 @@ export const trails: ITrail[] = [
       },
       startDate: "August 15",
     },
-    length: 273,
   },
   {
     name: "John Muir Trail",
     type: "Linear",
+    length: 211,
+    offRoadLength: 211,
     terminusA: {
       name: "Mist Trail & John Muir Trail Trailhead",
       country: "US",
@@ -374,11 +389,12 @@ export const trails: ITrail[] = [
       },
       startDate: "August 1",
     },
-    length: 211,
   },
   {
     name: "Pinhoti Trail",
     type: "Linear",
+    length: 335,
+    offRoadLength: 0,
     terminusA: {
       name: "Southern Terminus",
       country: "US",
@@ -401,6 +417,5 @@ export const trails: ITrail[] = [
       },
       startDate: "October 1",
     },
-    length: 335,
   },
 ];
