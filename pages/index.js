@@ -1,21 +1,19 @@
 import Head from "next/head";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import TrailList from "../components/TrailList";
 import Hero from "../components/Hero";
+import Layout from "../components/Layout";
 
 // TODO: add styling
-// TODO: create layout component
 const Home = () => (
   <>
     <Head>
       <title>Thru Hike Info</title>
       <link rel="shortcut icon" href="/favicon.ico" />
     </Head>
-    <Header />
-    <Hero />
-    <TrailList />
-    <Footer />
+    <Layout>
+      <Hero />
+      <TrailList />
+    </Layout>
   </>
 );
 

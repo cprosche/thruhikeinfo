@@ -22,7 +22,6 @@ export interface ITrail {
 }
 
 // TODO: add more trails
-// TODO: add number of on trail miles AKA completeness of trail
 // TODO: add name and link to trail associations
 // TODO: add link to interactive online maps if they have one
 export const trails: ITrail[] = [
