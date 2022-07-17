@@ -470,4 +470,32 @@ export const trails: ITrail[] = [
       startDate: "July 1",
     },
   },
+  {
+    name: "Great Divide Trail",
+    type: "Linear",
+    length: 700,
+    offRoadLength: null,
+    terminusA: {
+      name: "Southern Terminus",
+      country: "CA",
+      city: "Waterton Park",
+      region: "Alberta",
+      location: {
+        latitude: 48.9986875, 
+        longitude: -113.9061303,
+      },
+      startDate: null,
+    },
+    terminusB: {
+      name: "Northern Terminus",
+      country: "CA",
+      city: "Fraser-Fort George",
+      region: "British Columbia",
+      location: {
+        latitude: 53.8466669,
+        longitude: -120.4202045,
+      },
+      startDate: null,
+    },
+  },
 ];
