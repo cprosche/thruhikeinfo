@@ -5,6 +5,7 @@ import '../styles/globals.css'
 // TODO: SEO
 // TODO: make site open source
 // TODO: add site styling
+// TODO: add license
 function Application({ Component, pageProps }) {
   return <Component {...pageProps} />
 }

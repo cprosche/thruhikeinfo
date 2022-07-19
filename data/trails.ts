@@ -23,9 +23,7 @@ export interface ITrail {
 
 // TODO: add more trails
 // TODO: add name and link to trail associations
-// TODO: add link to interactive online maps if they have one
 // TODO: add multi country support
-// TODO: add name alias support for details pages
 export const trails: ITrail[] = [
   {
     name: "Appalachian Trail",

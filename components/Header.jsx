@@ -1,6 +1,5 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 
-// TODO: add about page
 // TODO: add trail slang dictionary
 const Header = () => (
   <Navbar bg="dark" variant="dark">
