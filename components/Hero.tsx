@@ -1,3 +1,5 @@
+import { Colors } from "../utils/colors";
+
 const Hero = () => (
   <div
     className="px-4 py-5 text-center text-light"
@@ -13,8 +15,8 @@ const Hero = () => (
       height: 500
     }}
   >
-    <h1 className="display-5 fw-bold">Want to hike?</h1>
-    <div className="col-lg-6 mx-auto">
+    <h1 className="display-5 fw-bold" style={{color: Colors.grey}}>Want to hike?</h1>
+    <div className="col-lg-6 mx-auto" style={{color: Colors.grey}}>
       <p className="lead mb-4">
         Information to help you plan your next big hike. This website is currently a work in progress and there will be a lot more useful information here in the near future.
       </p>

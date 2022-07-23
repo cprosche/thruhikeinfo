@@ -1,8 +1,9 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { Colors } from "../utils/colors";
 
 // TODO: add trail slang dictionary
 const Header = () => (
-  <Navbar bg="dark" variant="dark">
+  <Navbar style={{ backgroundColor: Colors.grey }}>
     <Container>
       <Navbar.Brand href="/">Thru Hike Info</Navbar.Brand>
       <Nav className="me-auto">

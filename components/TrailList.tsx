@@ -5,6 +5,7 @@ import Container from "../node_modules/react-bootstrap/esm/Container";
 import Row from "../node_modules/react-bootstrap/esm/Row";
 import Col from "../node_modules/react-bootstrap/esm/Col";
 import FormControl from "../node_modules/react-bootstrap/esm/FormControl";
+import { Colors } from "../utils/colors";
 
 // TODO: add more filtering and sorting options
 // TODO: change search to just display none components
@@ -32,7 +33,7 @@ const TrailList = () => {
     <Container className="mt-5" id="hikes">
       <Row>
         <Col lg={12} className="text-center">
-          <h2 className="mb-0">Thru Hikes</h2>
+          <h2 className="mb-0" style={{fontWeight: 700}}>Thru Hikes</h2>
           <p>{trails.length} hikes total</p>
         </Col>
         <Col lg={{ span: 6, offset: 3 }} style={{ minHeight: 500 }}>
@@ -40,6 +41,7 @@ const TrailList = () => {
             className="mb-3"
             placeholder="Search by trail name"
             onChange={(event) => setSearchTerm(event.target.value)}
+            style={{color: Colors.brown}}
           />
           {trailsList.length > 0 ? (
             trailsList.map((trail, index) => (

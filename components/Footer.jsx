@@ -3,7 +3,7 @@ import { Row, Col, Container } from "react-bootstrap";
 
 const Footer = () => (
   <Container>
-    <Row className="my-5 align-items-center">
+    <Row className="py-5 align-items-center">
       <Col lg={3}>
         <Link href={"https://www.caderosche.dev"}>Cade Rosche</Link> &copy;{" "}
         {new Date().getFullYear()}

@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+* {
+    font-family: 'Quicksand', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #ACB992;
+    border-color: #ACB992;
+}
