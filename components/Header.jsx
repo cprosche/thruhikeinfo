@@ -1,4 +1,5 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
+import Link from "../node_modules/next/link";
 import { Colors } from "../utils/colors";
 
 // TODO: add trail slang dictionary

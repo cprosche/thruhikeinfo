@@ -33,7 +33,6 @@ export interface ITrail {
 }
 
 // TODO: add more trails
-// TODO: add name and link to trail associations
 // TODO: add multi country support
 export const trails: ITrail[] = [
   {

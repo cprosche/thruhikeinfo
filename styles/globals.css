@@ -15,3 +15,15 @@
   background-color: #464e2e !important;
   border-color: #464e2e !important;
 }
+
+.btn-secondary,
+.btn-secondary:visited {
+  background-color: #464e2e !important;
+  border-color: #464e2e !important;
+}
+
+.btn-secondary:hover,
+.btn-secondary:active {
+  background-color: #362706 !important;
+  border-color: #362706 !important;
+}

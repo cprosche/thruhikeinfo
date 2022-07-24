@@ -10,4 +10,5 @@ The purpose of thruhike.info is to provide info to help in the initial planning 
 - [ ] Trail slang dictionary
 - [ ] Visitor tracking
 - [ ] New trail submission form
+- [ ] Trail modification form
 - [ ] Open source the project
