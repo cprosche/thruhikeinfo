@@ -1,10 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap");
 
 * {
-    font-family: 'Quicksand', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Quicksand", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color: #ACB992;
-    border-color: #ACB992;
+.btn-primary,
+.btn-primary:visited {
+  background-color: #acb992 !important;
+  border-color: #acb992 !important;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+  background-color: #464e2e !important;
+  border-color: #464e2e !important;
 }

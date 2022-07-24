@@ -1,13 +1,16 @@
-import { Card, ListGroup, Badge } from "react-bootstrap";
 import TrailLength from "./TrailLength";
 import { countryCodes } from "../data/countryCodes";
 import TrailTerminus from "./TrailTerminus";
 import TrailName from "./TrailName";
+import Card from "../node_modules/react-bootstrap/esm/Card";
+import ListGroup from "../node_modules/react-bootstrap/esm/ListGroup";
+import { Months } from "../data/months";
 
+// TODO: refactor terminus component to include estimated date
 const TrailCard = ({
   trail: { name, type, length, offRoadLength, terminusA, terminusB = null },
 }) => (
-  <Card className="mb-3">
+  <Card className="mb-3 shadow-sm">
     <Card.Body>
       <Card.Title className="mb-1">
         <TrailName name={name} length={length} offRoadLength={offRoadLength} />
@@ -26,13 +29,23 @@ const TrailCard = ({
               <TrailTerminus terminus={terminusA} label={"Terminus A"} />
             </Card.Text>
             <Card.Text className="text-muted mb-2">
-              Estimated Best Start Date*: {terminusA.startDate ?? "N/a"}
+              Estimated Best Start Date*:{" "}
+              {terminusA.startDate
+                ? Months[terminusA.startDate.month - 1] +
+                  " " +
+                  terminusA.startDate.day
+                : "N/a"}
             </Card.Text>
             <Card.Text className="mb-1">
               <TrailTerminus terminus={terminusB} label={"Terminus B"} />
             </Card.Text>
             <Card.Text className="text-muted">
-              Estimated Best Start Date*: {terminusB.startDate ?? "N/a"}
+              Estimated Best Start Date*:{" "}
+              {terminusB.startDate
+                ? Months[terminusB.startDate.month - 1] +
+                  " " +
+                  terminusB.startDate.day
+                : "N/a"}
             </Card.Text>
           </>
         ) : (
@@ -41,7 +54,12 @@ const TrailCard = ({
               <TrailTerminus terminus={terminusA} label={"Recommended Start"} />
             </Card.Text>
             <Card.Text className="text-muted mb-2">
-              Estimated Best Start Date*: {terminusA.startDate ?? "N/a"}
+              Estimated Best Start Date*:{" "}
+              {terminusA.startDate
+                ? Months[terminusA.startDate.month - 1] +
+                  " " +
+                  terminusA.startDate.day
+                : "N/a"}
             </Card.Text>
           </>
         )}

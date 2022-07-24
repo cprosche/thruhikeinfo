@@ -4,9 +4,10 @@
 The purpose of thruhike.info is to provide info to help in the initial planning phase of a multi day long distance hike from one terminus of a trail or route to another, also known as a thru hike. 
 
 ## Desired Features for Beta Release
-- [ ] Open source the project
-- [ ] Trail list with multiple hikes from each continent
-- [ ] Ability to filter based on start date, location, and distance/time for completion
-- [ ] Trail slang dictionary
+- [X] Ability to filter based on start date and trail name
 - [X] Custom styling
+- [ ] Trail list with multiple hikes from each continent
+- [ ] Trail slang dictionary
 - [ ] Visitor tracking
+- [ ] New trail submission form
+- [ ] Open source the project

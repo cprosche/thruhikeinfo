@@ -13,7 +13,7 @@ const Footer = () => (
       </Col>
       <Col lg={3} className="text-lg-end">
         <Link href={"https://github.com/cprosche"}>
-          Soon, this will be an open source project...
+          Soon, this will be open source...
         </Link>
       </Col>
     </Row>

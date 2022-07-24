@@ -4,47 +4,79 @@ import { trails } from "../data/trails";
 import Container from "../node_modules/react-bootstrap/esm/Container";
 import Row from "../node_modules/react-bootstrap/esm/Row";
 import Col from "../node_modules/react-bootstrap/esm/Col";
-import FormControl from "../node_modules/react-bootstrap/esm/FormControl";
+import Form from "../node_modules/react-bootstrap/esm/Form";
 import { Colors } from "../utils/colors";
+import { Months } from "../data/months";
 
-// TODO: add more filtering and sorting options
-// TODO: change search to just display none components
+// TODO: change search to just "display: none" components to preserve state
 const TrailList = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [trailsList, setTrailsList] = useState(
-    trails.sort((a, b) => a.length - b.length)
-  );
+  const sortedTrails = trails.sort((a, b) => a.length - b.length);
+  const [trailsList, setTrailsList] = useState(sortedTrails);
+  const [filterTerm, setFilterTerm] = useState("");
+  const [filterMonth, setFilterMonth] = useState(0);
 
-  // filters based on search term
+  // filters based on filter term && month
   useEffect(() => {
-    if (searchTerm === "") {
-      setTrailsList(trails);
-    } else {
-      const newTrailList = trails
-        .filter((trail) =>
-          trail.name.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-        .sort((a, b) => a.length - b.length);
-      setTrailsList(newTrailList);
+    let newTrailList = sortedTrails.filter((trail) =>
+      trail.name.toLowerCase().includes(filterTerm.toLowerCase())
+    );
+    if (filterMonth != 0) {
+      newTrailList = newTrailList.filter(
+        (trail) =>
+          (trail.terminusA.startDate != null &&
+            trail.terminusA.startDate.month == filterMonth) ||
+          (trail.terminusB &&
+            trail.terminusB.startDate != null &&
+            trail.terminusB.startDate.month == filterMonth)
+      );
     }
-  }, [searchTerm, setTrailsList]);
+    setTrailsList(newTrailList);
+  }, [filterTerm, filterMonth, setTrailsList]);
 
   return (
     <Container className="mt-5" id="hikes">
       <Row>
         <Col lg={12} className="text-center">
-          <h2 className="mb-0" style={{fontWeight: 700}}>Thru Hikes</h2>
+          <h2 className="mb-0" style={{ fontWeight: 700 }}>
+            Thru Hikes
+          </h2>
           <p>{trails.length} hikes total</p>
         </Col>
+        <Col lg={{ span: 6, offset: 3 }}>
+          <Row>
+            <Col md={6}>
+              <Form.Control
+                className="mb-3 shadow-sm"
+                placeholder="Filter by trail name"
+                onChange={(event) => setFilterTerm(event.target.value)}
+                style={{ color: Colors.brown }}
+              />
+            </Col>
+            <Col md={6}>
+              <Form.Select
+                className={
+                  "mb-3 shadow-sm" + (filterMonth === 0 ? " text-muted" : "")
+                }
+                defaultValue={0}
+                onChange={(event) =>
+                  setFilterMonth(parseInt(event.target.value))
+                }
+              >
+                <option value={0} className="text-muted">
+                  Filter by start month
+                </option>
+                {Months.map((month, index) => (
+                  <option value={index + 1} key={index} className="text-dark">
+                    {month}
+                  </option>
+                ))}
+              </Form.Select>
+            </Col>
+          </Row>
+        </Col>
         <Col lg={{ span: 6, offset: 3 }} style={{ minHeight: 500 }}>
-          <FormControl
-            className="mb-3"
-            placeholder="Search by trail name"
-            onChange={(event) => setSearchTerm(event.target.value)}
-            style={{color: Colors.brown}}
-          />
           {trailsList.length > 0 ? (
-            trailsList.map((trail, index) => (
+            trailsList.map((trail) => (
               <TrailCard trail={trail} key={trail.name} />
             ))
           ) : (

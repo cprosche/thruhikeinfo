@@ -3,13 +3,18 @@ export interface ILocation {
   longitude: number;
 }
 
+export interface IDayOfYear {
+  month: number;
+  day: number;
+}
+
 export interface ITerminus {
   name: string;
   country: string;
   region: string;
   city: string;
   location: ILocation;
-  startDate: string;
+  startDate: IDayOfYear | null;
 }
 
 export interface ITrail {
@@ -39,7 +44,7 @@ export const trails: ITrail[] = [
         latitude: 34.62672226779845,
         longitude: -84.1938510080714,
       },
-      startDate: "April 1",
+      startDate: { month: 4, day: 1 },
     },
     terminusB: {
       name: "Peak of Mount Katahdin",
@@ -50,7 +55,7 @@ export const trails: ITrail[] = [
         latitude: 45.904433636008235,
         longitude: -68.92147437973453,
       },
-      startDate: "June 1",
+      startDate: { month: 6, day: 1 },
     },
   },
   {
@@ -67,7 +72,7 @@ export const trails: ITrail[] = [
         latitude: 31.497162747577544,
         longitude: -108.20874030214652,
       },
-      startDate: "April 1",
+      startDate: { month: 4, day: 1 },
     },
     terminusB: {
       name: "Bertha Trailhead",
@@ -78,7 +83,7 @@ export const trails: ITrail[] = [
         latitude: 49.0470732590971,
         longitude: -113.91663117785163,
       },
-      startDate: "June 13",
+      startDate: { month: 6, day: 13 },
     },
   },
   {
@@ -95,7 +100,7 @@ export const trails: ITrail[] = [
         latitude: 33.437260992907454,
         longitude: -116.46699756718175,
       },
-      startDate: "April 1",
+      startDate: { month: 4, day: 1 },
     },
     terminusB: {
       name: "Pacific Crest Trail Northern Terminus",
@@ -106,7 +111,7 @@ export const trails: ITrail[] = [
         latitude: 49.00041115333111,
         longitude: -120.79981454390118,
       },
-      startDate: "June 26",
+      startDate: { month: 6, day: 26 },
     },
   },
   {
@@ -123,7 +128,7 @@ export const trails: ITrail[] = [
         latitude: 31.33447044548378,
         longitude: -110.28308131712704,
       },
-      startDate: "March 15",
+      startDate: { month: 3, day: 15 },
     },
     terminusB: {
       name: "Northern Terminus Arizona Trail",
@@ -134,7 +139,7 @@ export const trails: ITrail[] = [
         latitude: 37.001829970754365,
         longitude: -112.03516276137317,
       },
-      startDate: "March 15",
+      startDate: { month: 3, day: 15 },
     },
   },
   {
@@ -151,7 +156,7 @@ export const trails: ITrail[] = [
         latitude: 39.49106755428632,
         longitude: -105.09410095586168,
       },
-      startDate: "July 1",
+      startDate: { month: 7, day: 1 },
     },
     terminusB: {
       name: "Colorado Trail Trailhead",
@@ -162,7 +167,7 @@ export const trails: ITrail[] = [
         latitude: 37.33140925560323,
         longitude: -107.90283321780313,
       },
-      startDate: "July 1",
+      startDate: { month: 7, day: 1 },
     },
   },
   {
@@ -179,7 +184,7 @@ export const trails: ITrail[] = [
         latitude: 45.40014632640452,
         longitude: -92.6494693607597,
       },
-      startDate: "September 1",
+      startDate: { month: 9, day: 1 },
     },
     terminusB: {
       name: "Eastern Terminus",
@@ -190,7 +195,7 @@ export const trails: ITrail[] = [
         latitude: 44.875179450658145,
         longitude: -87.43175103068305,
       },
-      startDate: "September 1",
+      startDate: { month: 9, day: 1 },
     },
   },
   {
@@ -207,7 +212,7 @@ export const trails: ITrail[] = [
         latitude: 25.960822817653238,
         longitude: -81.02245344219796,
       },
-      startDate: "January 1",
+      startDate: { month: 1, day: 1 },
     },
     terminusB: {
       name: "Northern Terminus",
@@ -218,7 +223,7 @@ export const trails: ITrail[] = [
         latitude: 30.328802234197365,
         longitude: -87.28953691595429,
       },
-      startDate: "January 1",
+      startDate: { month: 1, day: 1 },
     },
   },
   {
@@ -235,7 +240,7 @@ export const trails: ITrail[] = [
         latitude: 46.607910243765275,
         longitude: -92.2917804596569,
       },
-      startDate: "September 1",
+      startDate: { month: 9, day: 1 },
     },
     terminusB: {
       name: "Northern Terminus",
@@ -246,7 +251,7 @@ export const trails: ITrail[] = [
         latitude: 47.99912473652048,
         longitude: -89.93471533077344,
       },
-      startDate: "September 1",
+      startDate: { month: 9, day: 1 },
     },
   },
   {
@@ -263,7 +268,7 @@ export const trails: ITrail[] = [
         latitude: -34.42838394108281,
         longitude: 172.67988499755322,
       },
-      startDate: "November 1",
+      startDate: { month: 11, day: 15 },
     },
     terminusB: {
       name: "Stirling Point",
@@ -274,7 +279,7 @@ export const trails: ITrail[] = [
         latitude: -46.613314822220765,
         longitude: 168.3573299848666,
       },
-      startDate: "November 15",
+      startDate: { month: 11, day: 15 },
     },
   },
   {
@@ -291,7 +296,7 @@ export const trails: ITrail[] = [
         latitude: 48.99570842725646,
         longitude: -113.65955417505153,
       },
-      startDate: "June 15",
+      startDate: { month: 6, day: 15 },
     },
     terminusB: {
       name: "Cape Alava",
@@ -302,7 +307,7 @@ export const trails: ITrail[] = [
         latitude: 48.16598088810253,
         longitude: -124.73246509084761,
       },
-      startDate: "June 15",
+      startDate: { month: 6, day: 15 },
     },
   },
   {
@@ -347,7 +352,7 @@ export const trails: ITrail[] = [
         latitude: 42.74460435773166,
         longitude: -73.1557407693185,
       },
-      startDate: "August 15",
+      startDate: { month: 8, day: 15 },
     },
     terminusB: {
       name: "Northern Terminus",
@@ -358,7 +363,7 @@ export const trails: ITrail[] = [
         latitude: 45.00909261906257,
         longitude: -72.4883542584306,
       },
-      startDate: "August 15",
+      startDate: { month: 8, day: 15 },
     },
   },
   {
@@ -375,7 +380,7 @@ export const trails: ITrail[] = [
         latitude: 37.7329744,
         longitude: -119.557763,
       },
-      startDate: "August 1",
+      startDate: { month: 8, day: 1 },
     },
     terminusB: {
       name: "Summit of Mount Whitney",
@@ -386,7 +391,7 @@ export const trails: ITrail[] = [
         latitude: 36.5785165,
         longitude: -118.2922642,
       },
-      startDate: "August 1",
+      startDate: { month: 8, day: 1 },
     },
   },
   {
@@ -403,7 +408,7 @@ export const trails: ITrail[] = [
         latitude: 32.9727812,
         longitude: -86.3480869,
       },
-      startDate: "October 1",
+      startDate: { month: 10, day: 1 },
     },
     terminusB: {
       name: "Northern Terminus",
@@ -414,7 +419,7 @@ export const trails: ITrail[] = [
         latitude: 34.8882042398775,
         longitude: -84.52724453124739,
       },
-      startDate: "October 1",
+      startDate: { month: 10, day: 1 },
     },
   },
   {
@@ -431,7 +436,7 @@ export const trails: ITrail[] = [
         latitude: 46.75175661332915,
         longitude: -121.81178836363384,
       },
-      startDate: "August 1",
+      startDate: { month: 8, day: 1 },
     },
   },
   {
@@ -448,7 +453,7 @@ export const trails: ITrail[] = [
         latitude: 45.33066208433231,
         longitude: -121.70905955162013,
       },
-      startDate: "August 1",
+      startDate: { month: 8, day: 1 },
     },
   },
   {
@@ -465,7 +470,7 @@ export const trails: ITrail[] = [
         latitude: 39.16507568164984,
         longitude: -120.14732643423736,
       },
-      startDate: "July 1",
+      startDate: { month: 7, day: 1 },
     },
   },
   {
@@ -507,7 +512,7 @@ export const trails: ITrail[] = [
       city: "Waterton Park",
       region: "Alberta",
       location: {
-        latitude: 48.9986875, 
+        latitude: 48.9986875,
         longitude: -113.9061303,
       },
       startDate: null,
