@@ -8,7 +8,15 @@ import { Months } from "../data/months";
 
 // TODO: refactor terminus component to include estimated date
 const TrailCard = ({
-  trail: { name, type, length, offRoadLength, terminusA, terminusB = null },
+  trail: {
+    name,
+    type,
+    length,
+    offRoadLength,
+    trailAssociation,
+    terminusA,
+    terminusB = null,
+  },
 }) => (
   <Card className="mb-3 shadow-sm">
     <Card.Body>
@@ -64,6 +72,14 @@ const TrailCard = ({
           </>
         )}
       </ListGroup.Item>
+      {trailAssociation && (
+        <ListGroup.Item>
+          <Card.Text>
+            Trail Association:{" "}
+            <a href={trailAssociation.url}>{trailAssociation.name}</a>
+          </Card.Text>
+        </ListGroup.Item>
+      )}
     </ListGroup>
   </Card>
 );

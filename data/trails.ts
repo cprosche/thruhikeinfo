@@ -3,6 +3,11 @@ export interface ILocation {
   longitude: number;
 }
 
+export interface ITrailAssociation {
+  name: string;
+  url: string;
+}
+
 export interface IDayOfYear {
   month: number;
   day: number;
@@ -22,6 +27,7 @@ export interface ITrail {
   type: string;
   length: number; // miles
   offRoadLength: number;
+  trailAssociation: ITrailAssociation | null;
   terminusA: ITerminus;
   terminusB?: ITerminus;
 }
@@ -35,6 +41,10 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 2190,
     offRoadLength: 2190,
+    trailAssociation: {
+      name: "Appalachian Trail Conservancy",
+      url: "https://appalachiantrail.org/",
+    },
     terminusA: {
       name: "Peak of Springer Mountain",
       country: "US",
@@ -63,6 +73,10 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 3100,
     offRoadLength: 2170,
+    trailAssociation: {
+      name: "Continental Divide Trail Coalition",
+      url: "https://continentaldividetrail.org/",
+    },
     terminusA: {
       name: "Crazy Cook Monument",
       country: "US",
@@ -91,8 +105,12 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 2650,
     offRoadLength: 2650,
+    trailAssociation: {
+      name: "Pacific Crest Trail Association",
+      url: "https://www.pcta.org/",
+    },
     terminusA: {
-      name: "Pacific Crest Trail Southern Terminus",
+      name: "Southern Terminus",
       country: "US",
       region: "California",
       city: "Campo",
@@ -103,7 +121,7 @@ export const trails: ITrail[] = [
       startDate: { month: 4, day: 1 },
     },
     terminusB: {
-      name: "Pacific Crest Trail Northern Terminus",
+      name: "Northern Terminus",
       country: "US",
       region: "Washington",
       city: "Manning Park",
@@ -119,6 +137,10 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 800,
     offRoadLength: null,
+    trailAssociation: {
+      name: "Arizona Trail Association",
+      url: "https://aztrail.org/",
+    },
     terminusA: {
       name: "Border Monument 102 Southern Terminus",
       country: "US",
@@ -131,7 +153,7 @@ export const trails: ITrail[] = [
       startDate: { month: 3, day: 15 },
     },
     terminusB: {
-      name: "Northern Terminus Arizona Trail",
+      name: "Northern Terminus",
       country: "US",
       region: "Arizona",
       city: "Marble Canyon",
@@ -147,6 +169,10 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 567,
     offRoadLength: 567,
+    trailAssociation: {
+      name: "Colorado Trail Foundation",
+      url: "https://coloradotrail.org/",
+    },
     terminusA: {
       name: "Waterton Canyon Trailhead",
       country: "US",
@@ -175,6 +201,10 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 1200,
     offRoadLength: 640,
+    trailAssociation: {
+      name: "Ice Age Trail Alliance",
+      url: "https://www.iceagetrail.org/",
+    },
     terminusA: {
       name: "Western Terminus",
       country: "US",
@@ -202,6 +232,10 @@ export const trails: ITrail[] = [
     name: "Florida Trail",
     type: "Linear",
     length: 1500,
+    trailAssociation: {
+      name: "Florida Trail Association",
+      url: "https://floridatrail.org/",
+    },
     offRoadLength: 1300,
     terminusA: {
       name: "Southern Terminus",
@@ -231,6 +265,10 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 310,
     offRoadLength: 310,
+    trailAssociation: {
+      name: "Superior Hiking Trail Association",
+      url: "https://superiorhiking.org/",
+    },
     terminusA: {
       name: "Southern Terminus",
       country: "US",
@@ -259,6 +297,10 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 1850,
     offRoadLength: null,
+    trailAssociation: {
+      name: "Te Araroa Trust",
+      url: "https://www.teararoa.org.nz/",
+    },
     terminusA: {
       name: "Northern Terminus",
       country: "NZ",
@@ -287,6 +329,10 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 1200,
     offRoadLength: null,
+    trailAssociation: {
+      name: "Pacific Northwest Trail Association",
+      url: "https://www.pnt.org/",
+    },
     terminusA: {
       name: "Chief Mountain Customs Parking Area",
       country: "US",
@@ -315,6 +361,10 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 4800,
     offRoadLength: 3188,
+    trailAssociation: {
+      name: "North Country Trail Association",
+      url: "https://northcountrytrail.org/",
+    },
     terminusA: {
       name: "Long Trail Access",
       country: "US",
@@ -343,6 +393,10 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 273,
     offRoadLength: 273,
+    trailAssociation: {
+      name: "Green Mountain Club",
+      url: "https://www.greenmountainclub.org/the-long-trail/",
+    },
     terminusA: {
       name: "Southern Terminus",
       country: "US",
@@ -371,6 +425,10 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 211,
     offRoadLength: 211,
+    trailAssociation: {
+      name: "Pacific Crest Trail Association",
+      url: "https://www.pcta.org/discover-the-trail/john-muir-trail/",
+    },
     terminusA: {
       name: "Mist Trail & John Muir Trail Trailhead",
       country: "US",
@@ -399,6 +457,10 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 335,
     offRoadLength: null,
+    trailAssociation: {
+      name: "Pinhoti Trail Alliance",
+      url: "http://www.pinhotitrailalliance.org",
+    },
     terminusA: {
       name: "Southern Terminus",
       country: "US",
@@ -427,6 +489,10 @@ export const trails: ITrail[] = [
     type: "Loop",
     length: 93,
     offRoadLength: 93,
+    trailAssociation: {
+      name: "Washington Trails Association",
+      url: "https://www.wta.org/go-hiking/hikes/wonderland-trail-thru-hike",
+    },
     terminusA: {
       name: "Longmire",
       country: "US",
@@ -444,6 +510,7 @@ export const trails: ITrail[] = [
     type: "Loop",
     length: 42,
     offRoadLength: 42,
+    trailAssociation: null,
     terminusA: {
       name: "Timberline Lodge",
       country: "US",
@@ -461,6 +528,10 @@ export const trails: ITrail[] = [
     type: "Loop",
     length: 165,
     offRoadLength: null,
+    trailAssociation: {
+      name: "Tahoe Rim Trail Association",
+      url: "https://tahoerimtrail.org/",
+    },
     terminusA: {
       name: "64 Acres",
       country: "US",
@@ -478,6 +549,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 280,
     offRoadLength: 280,
+    trailAssociation: null,
     terminusA: {
       name: "Northern Terminus",
       country: "SE",
@@ -506,6 +578,10 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 700,
     offRoadLength: null,
+    trailAssociation: {
+      name: "Great Divide Trail Association",
+      url: "https://greatdividetrail.com/",
+    },
     terminusA: {
       name: "Southern Terminus",
       country: "CA",
