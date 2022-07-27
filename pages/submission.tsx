@@ -1,4 +1,5 @@
 import Layout from "../components/Layout";
+import Button from "../node_modules/react-bootstrap/esm/Button";
 import Col from "../node_modules/react-bootstrap/esm/Col";
 import Container from "../node_modules/react-bootstrap/esm/Container";
 import Form from "../node_modules/react-bootstrap/esm/Form";
@@ -22,10 +23,7 @@ const Submission = () => (
                 <option value="change">Suggest An Update</option>
               </Form.Select>
             </Form.Group>
-            <Form.Group
-              className="mb-3"
-              controlId="changeDescription"
-            >
+            <Form.Group className="mb-3" controlId="changeDescription">
               <Form.Label>
                 Please describe your suggestion, and please include as much
                 infomation as possible.
@@ -37,6 +35,9 @@ const Submission = () => (
                 or linear, trail association, etc.
               </Form.Text>
             </Form.Group>
+            <Button variant="secondary" type="submit">
+              Submit
+            </Button>
           </Form>
         </Col>
       </Row>
