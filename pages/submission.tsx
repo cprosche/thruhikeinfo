@@ -5,6 +5,7 @@ import Container from "../node_modules/react-bootstrap/esm/Container";
 import Form from "../node_modules/react-bootstrap/esm/Form";
 import Row from "../node_modules/react-bootstrap/esm/Row";
 
+// TODO: fix based on https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/?_gl=1*coz1k*_gcl_aw*R0NMLjE2NTg4ODQ3NTQuQ2owS0NRandvZjZXQmhENEFSSXNBT2k2NWFnZGhzQzE5TjVfRVF6eEltWGRIdTlBYVpaZkxjSlYxWWpMQ0Z0RDBhOFVoQld4dlJTaU9SSWFBbWxtRUFMd193Y0I.&_ga=2.80914782.816531606.1658884754-1646007439.1652634728&_gac=1.61152734.1658884754.Cj0KCQjwof6WBhD4ARIsAOi65agdhsC19N5_EQzxImXdHu9AaZZfLcJV1YjLCFtD0a8UhBWxvRSiORIaAmlmEALw_wcB
 const Submission = () => (
   <Layout>
     <Container>
