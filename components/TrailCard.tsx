@@ -5,6 +5,7 @@ import TrailName from "./TrailName";
 import Card from "../node_modules/react-bootstrap/esm/Card";
 import ListGroup from "../node_modules/react-bootstrap/esm/ListGroup";
 import { Months } from "../data/months";
+import CountryText from "./CountryText";
 
 // TODO: refactor terminus component to include estimated date
 const TrailCard = ({
@@ -23,7 +24,9 @@ const TrailCard = ({
       <Card.Title className="mb-1">
         <TrailName name={name} length={length} offRoadLength={offRoadLength} />
       </Card.Title>
-      <Card.Text>Country: {countryCodes[terminusA.country]}</Card.Text>
+      <Card.Text>
+        <CountryText termini={{ terminusA, terminusB }} />
+      </Card.Text>
     </Card.Body>
     <ListGroup className="list-group-flush">
       <ListGroup.Item>
