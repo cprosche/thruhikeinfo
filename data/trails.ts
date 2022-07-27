@@ -33,7 +33,6 @@ export interface ITrail {
 }
 
 // TODO: add more trails
-// TODO: add multi country support
 export const trails: ITrail[] = [
   {
     name: "Appalachian Trail",

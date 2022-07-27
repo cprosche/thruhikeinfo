@@ -7,7 +7,6 @@ import ListGroup from "../node_modules/react-bootstrap/esm/ListGroup";
 import { Months } from "../data/months";
 import CountryText from "./CountryText";
 
-// TODO: refactor terminus component to include estimated date
 const TrailCard = ({
   trail: {
     name,
