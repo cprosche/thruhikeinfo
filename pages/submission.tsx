@@ -19,7 +19,7 @@ const Submission = () => (
           <Form name="submit" data-netlify="true">
             <Form.Group className="mb-3" controlId="formOption">
               <Form.Label>Submission type</Form.Label>
-              <Form.Select>
+              <Form.Select name="submit-type">
                 <option value="new">Submit A New Hike</option>
                 <option value="change">Suggest An Update</option>
               </Form.Select>
@@ -29,13 +29,14 @@ const Submission = () => (
                 Please describe your suggestion, and please include as much
                 infomation as possible.
               </Form.Label>
-              <Form.Control as="textarea" rows={5} />
+              <Form.Control as="textarea" rows={5} name="submit-description" />
               <Form.Text>
                 If submitting a new trail, please include information such as:
                 trail name, length, location of terminus/es, whether it's a loop
                 or linear, trail association, etc.
               </Form.Text>
             </Form.Group>
+            <input type="hidden" name="form-name" value="submit" />
             <Button variant="secondary" type="submit">
               Submit
             </Button>
