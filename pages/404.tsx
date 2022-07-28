@@ -1,3 +1,4 @@
+import HomeButton from "../components/HomeButton";
 import Layout from "../components/Layout";
 import Col from "../node_modules/react-bootstrap/esm/Col";
 import Container from "../node_modules/react-bootstrap/esm/Container";
@@ -12,9 +13,7 @@ const FourOhFour = () => (
           <h3 className="mb-4">
             Sorry, the page you are looking for doesn't exist.
           </h3>
-          <a className="btn btn-secondary" href="/">
-            Hike Back Home
-          </a>
+          <HomeButton />
         </Col>
       </Row>
     </Container>
