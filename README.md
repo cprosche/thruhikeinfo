@@ -10,5 +10,5 @@ The purpose of thruhike.info is to provide info to help in the initial planning 
 - [X] New trail submission form
 - [ ] Trail list with multiple hikes from each continent
 - [ ] Trail slang dictionary
-- [ ] Visitor tracking
+- [ ] Visitor count tracking
 - [ ] Open source the project
