@@ -1,6 +1,6 @@
-import TrailList from "../components/TrailList";
-import Hero from "../components/Hero";
-import Layout from "../components/Layout";
+import Hero from "../components/layout/Hero";
+import Layout from "../components/layout/Layout";
+import TrailList from "../components/trail/TrailList";
 import Head from "../node_modules/next/head";
 
 const Home = () => (

@@ -1,4 +1,4 @@
-import { Colors } from "../utils/colors";
+import { Colors } from "../../utils/colors";
 import Footer from "./Footer";
 import Header from "./Header";
 

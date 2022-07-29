@@ -1,12 +1,12 @@
 import TrailLength from "./TrailLength";
-import { countryCodes } from "../data/countryCodes";
 import TrailTerminus from "./TrailTerminus";
 import TrailName from "./TrailName";
-import Card from "../node_modules/react-bootstrap/esm/Card";
-import ListGroup from "../node_modules/react-bootstrap/esm/ListGroup";
-import { Months } from "../data/months";
+import Card from "../../node_modules/react-bootstrap/esm/Card";
+import ListGroup from "../../node_modules/react-bootstrap/esm/ListGroup";
+import { Months } from "../../data/months";
 import CountryText from "./CountryText";
 
+// TODO: make estimated start date component
 const TrailCard = ({
   trail: {
     name,

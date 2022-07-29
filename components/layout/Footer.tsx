@@ -1,12 +1,13 @@
-import Link from "next/link";
-import { Row, Col, Container } from "react-bootstrap";
+import Col from "../../node_modules/react-bootstrap/esm/Col";
+import Container from "../../node_modules/react-bootstrap/esm/Container";
+import Row from "../../node_modules/react-bootstrap/esm/Row";
 
 const Footer = () => (
   <Container>
     <Row className="py-5 align-items-center">
       <Col lg={3}>
         <div>
-          <Link href={"https://www.caderosche.dev"}>Cade Rosche</Link> &copy;{" "}
+          <a href={"https://www.caderosche.dev"}>Cade Rosche</a> &copy;{" "}
           {new Date().getFullYear()}
         </div>
         <div>v0-alpha</div>

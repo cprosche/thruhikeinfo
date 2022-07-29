@@ -1,4 +1,4 @@
-import { countryCodes } from "../data/countryCodes";
+import { countryCodes } from "../../data/countryCodes";
 
 const CountryText = ({ termini: { terminusA, terminusB } }) => {
   return (

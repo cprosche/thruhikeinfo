@@ -1,4 +1,4 @@
-import { ITerminus } from "../data/trails";
+import { ITerminus } from "../../data/trails";
 
 interface IProps {
   label: string;

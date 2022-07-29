@@ -1,5 +1,5 @@
 import HomeButton from "../components/HomeButton";
-import Layout from "../components/Layout";
+import Layout from "../components/layout/Layout";
 import Col from "../node_modules/react-bootstrap/esm/Col";
 import Container from "../node_modules/react-bootstrap/esm/Container";
 import Row from "../node_modules/react-bootstrap/esm/Row";

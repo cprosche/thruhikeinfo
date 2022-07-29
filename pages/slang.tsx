@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Layout from "../components/Layout";
+import Layout from "../components/layout/Layout";
 import SlangCard from "../components/SlangCard";
 import { slang } from "../data/slang";
 import Col from "../node_modules/react-bootstrap/esm/Col";

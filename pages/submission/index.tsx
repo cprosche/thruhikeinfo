@@ -1,4 +1,4 @@
-import Layout from "../../components/Layout";
+import Layout from "../../components/layout/Layout";
 import Button from "../../node_modules/react-bootstrap/esm/Button";
 import Col from "../../node_modules/react-bootstrap/esm/Col";
 import Container from "../../node_modules/react-bootstrap/esm/Container";

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
+import { Months } from "../../data/months";
+import { trails } from "../../data/trails";
+import Col from "../../node_modules/react-bootstrap/esm/Col";
+import Container from "../../node_modules/react-bootstrap/esm/Container";
+import Form from "../../node_modules/react-bootstrap/esm/Form";
+import Row from "../../node_modules/react-bootstrap/esm/Row";
+import { Colors } from "../../utils/colors";
 import TrailCard from "./TrailCard";
-import { trails } from "../data/trails";
-import Container from "../node_modules/react-bootstrap/esm/Container";
-import Row from "../node_modules/react-bootstrap/esm/Row";
-import Col from "../node_modules/react-bootstrap/esm/Col";
-import Form from "../node_modules/react-bootstrap/esm/Form";
-import { Colors } from "../utils/colors";
-import { Months } from "../data/months";
 
 // TODO: change search to just "display: none" components to preserve state
 // TODO: trail filter options set from url params

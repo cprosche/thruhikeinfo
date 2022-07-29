@@ -1,4 +1,4 @@
-import Badge from "../node_modules/react-bootstrap/esm/Badge";
+import Badge from "../../node_modules/react-bootstrap/esm/Badge";
 
 interface IProps {
   name: string;
