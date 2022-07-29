@@ -1,6 +1,6 @@
 import Card from "../node_modules/react-bootstrap/esm/Card";
 
-const SlangCard = ({ slang: { term, type, definition } }) => (
+const SlangCard = ({ slang: { term, definition } }) => (
   <Card className="mb-3 shadow-sm">
     <Card.Body>
       <Card.Title style={{ textTransform: "capitalize", fontWeight: 700 }}>
