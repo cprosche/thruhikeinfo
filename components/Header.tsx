@@ -3,7 +3,6 @@ import Nav from "../node_modules/react-bootstrap/esm/Nav";
 import Navbar from "../node_modules/react-bootstrap/esm/Navbar";
 import { Colors } from "../utils/colors";
 
-// TODO: add trail slang dictionary
 const Header = () => (
   <Navbar style={{ backgroundColor: Colors.grey }} collapseOnSelect expand="lg">
     <Container>

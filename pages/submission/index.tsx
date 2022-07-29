@@ -22,7 +22,7 @@ const Submission = () => (
               <Form.Select name="submit-type">
                 <option value="new">Submit A New Hike</option>
                 <option value="change">Suggest An Update</option>
-                <option value="new-slang">New Trail Slang</option>
+                <option value="new-slang">Submit New Trail Slang</option>
               </Form.Select>
             </Form.Group>
             <Form.Group className="mb-3" controlId="changeDescription">
