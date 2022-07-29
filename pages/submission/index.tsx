@@ -5,6 +5,7 @@ import Container from "../../node_modules/react-bootstrap/esm/Container";
 import Form from "../../node_modules/react-bootstrap/esm/Form";
 import Row from "../../node_modules/react-bootstrap/esm/Row";
 
+// TODO: form options able to be set from url params
 const Submission = () => (
   <Layout>
     <Container>
@@ -21,6 +22,7 @@ const Submission = () => (
               <Form.Select name="submit-type">
                 <option value="new">Submit A New Hike</option>
                 <option value="change">Suggest An Update</option>
+                <option value="new-slang">New Trail Slang</option>
               </Form.Select>
             </Form.Group>
             <Form.Group className="mb-3" controlId="changeDescription">

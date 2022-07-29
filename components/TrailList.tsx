@@ -9,6 +9,7 @@ import { Colors } from "../utils/colors";
 import { Months } from "../data/months";
 
 // TODO: change search to just "display: none" components to preserve state
+// TODO: trail filter options set from url params
 const TrailList = () => {
   const sortedTrails = trails.sort((a, b) => a.length - b.length);
   const [trailsList, setTrailsList] = useState(sortedTrails);
