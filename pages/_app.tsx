@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import "../styles/globals.css";
 import { analytics } from "../utils/analytics";
 
-// TODO: SEO
 // TODO: make site open source
 // TODO: add license
 // TODO: add sitemap
