@@ -6,7 +6,11 @@ import Head from "../node_modules/next/head";
 const Home = () => (
   <>
     <Head>
-      <title>Thru Hike Info</title>
+      <title>Home | Thru Hike Info | Info for planning your next big thru hike</title>
+      <meta
+        name="description"
+        content="Infomation to help you plan your next big thru hike. If you can't find the info you are looking for here, let us know and we will add it!"
+      ></meta>
     </Head>
     <Layout>
       <Hero />
