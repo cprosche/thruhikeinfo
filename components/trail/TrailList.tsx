@@ -87,6 +87,7 @@ const TrailList = () => {
             <Col md={12} className="mb-3 ps-3">
               <Form.Check
                 inline
+                id="miles"
                 label="miles"
                 value="miles"
                 name="units"
@@ -96,6 +97,7 @@ const TrailList = () => {
               />
               <Form.Check
                 inline
+                id="kilometers"
                 label="kilometers"
                 name="units"
                 type="radio"

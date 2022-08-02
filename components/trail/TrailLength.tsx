@@ -8,7 +8,7 @@ interface IProps {
 const TrailLength = ({ length, units }: IProps) => {
   const milesToKm = 1.61;
   const defaultAvgDistance = 15;
-  
+
   const [displayLength, setDisplayLength] = useState(length);
   const [avgDistance, setAvgDistance] = useState(defaultAvgDistance);
   const [hikingDays, setHikingDays] = useState(
@@ -54,9 +54,10 @@ const TrailLength = ({ length, units }: IProps) => {
     setHikingDays(Math.ceil(displayLength / avgDistance));
   }, [avgDistance, setHikingDays]);
 
+  const displayUnits = units == "kilometers" ? "km" : units;
   return (
     <>
-      Length*: {displayLength} {units}, {hikingDuration}{" "}
+      Length*: {displayLength} {displayUnits}, {hikingDuration}{" "}
       <select
         name=""
         id=""
@@ -84,7 +85,7 @@ const TrailLength = ({ length, units }: IProps) => {
         min={1}
         max={80}
       />{" "}
-      {units} per day.
+      {displayUnits} per day.
     </>
   );
 };
