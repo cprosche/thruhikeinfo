@@ -18,8 +18,8 @@ const Footer = () => (
         only information used to plan your thru hike.
       </Col>
       <Col lg={3} className="text-lg-end">
-        <a href="https://github.com/cprosche">
-          Soon, this will be open source...
+        <a href="https://github.com/cprosche/thruhikeinfo">
+          This project is open source!
         </a>
       </Col>
     </Row>
