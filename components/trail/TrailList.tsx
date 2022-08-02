@@ -10,13 +10,22 @@ import TrailCard from "./TrailCard";
 
 // TODO: change search to just "display: none" components to preserve state
 // TODO: trail filter options set from url params
-// TODO: filter by location (city, state AKA region)
+// TODO: filter by continent
+// TODO: filter by region/state
+// TODO: filter by length/time
+
+// TODO: big project - add map
 // TODO: sort by terminus distance from certain post code???
 const TrailList = () => {
   const sortedTrails = trails.sort((a, b) => a.length - b.length);
   const [trailsList, setTrailsList] = useState(sortedTrails);
   const [filterTerm, setFilterTerm] = useState("");
   const [filterMonth, setFilterMonth] = useState(0);
+  const [units, setUnits] = useState("miles");
+
+  const toggleUnits = () => {
+    units === "miles" ? setUnits("kilometers") : setUnits("miles");
+  };
 
   // filters based on filter term && month
   useEffect(() => {
@@ -75,12 +84,32 @@ const TrailList = () => {
                 ))}
               </Form.Select>
             </Col>
+            <Col md={12} className="mb-3 ps-3">
+              <Form.Check
+                inline
+                label="miles"
+                value="miles"
+                name="units"
+                type="radio"
+                onChange={toggleUnits}
+                checked={units === "miles"}
+              />
+              <Form.Check
+                inline
+                label="kilometers"
+                name="units"
+                type="radio"
+                value="miles"
+                onChange={toggleUnits}
+                checked={units === "kilometers"}
+              />
+            </Col>
           </Row>
         </Col>
         <Col lg={{ span: 6, offset: 3 }} style={{ minHeight: 500 }}>
           {trailsList.length > 0 ? (
             trailsList.map((trail) => (
-              <TrailCard trail={trail} key={trail.name} />
+              <TrailCard trail={trail} key={trail.name} units={units} />
             ))
           ) : (
             <div>No results</div>

@@ -17,6 +17,7 @@ const TrailCard = ({
     terminusA,
     terminusB = null,
   },
+  units,
 }) => (
   <Card className="mb-3 shadow-sm">
     <Card.Body>
@@ -29,7 +30,7 @@ const TrailCard = ({
     </Card.Body>
     <ListGroup className="list-group-flush">
       <ListGroup.Item>
-        <TrailLength length={length} />
+        <TrailLength length={length} units={units} />
       </ListGroup.Item>
       <ListGroup.Item>
         <Card.Text className="mb-2">Trail Type: {type}</Card.Text>
