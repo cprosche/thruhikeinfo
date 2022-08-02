@@ -11,6 +11,7 @@ import TrailCard from "./TrailCard";
 // TODO: change search to just "display: none" components to preserve state
 // TODO: trail filter options set from url params
 // TODO: filter by location (city, state AKA region)
+// TODO: sort by terminus distance from certain post code???
 const TrailList = () => {
   const sortedTrails = trails.sort((a, b) => a.length - b.length);
   const [trailsList, setTrailsList] = useState(sortedTrails);
