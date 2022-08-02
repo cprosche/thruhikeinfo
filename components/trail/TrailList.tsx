@@ -13,6 +13,7 @@ import TrailCard from "./TrailCard";
 // TODO: filter by continent
 // TODO: filter by region/state
 // TODO: filter by length/time
+// TODO: add N/a option to sort by start month
 
 // TODO: big project - add map
 // TODO: sort by terminus distance from certain post code???

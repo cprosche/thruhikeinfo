@@ -3,8 +3,7 @@ import { useEffect } from "react";
 import "../styles/globals.css";
 import { analytics } from "../utils/analytics";
 
-// TODO: make site open source
-// TODO: add license
+// TODO: add page for planned features
 // TODO: add sitemap
 function Application({ Component, pageProps }) {
   useEffect(() => {
