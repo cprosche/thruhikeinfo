@@ -33,6 +33,7 @@ export interface ITrail {
 }
 
 // TODO: add more trails
+// TODO: add milford track
 // TODO: add himalayas hikes
 // TODO: add south american hikes
 // TODO: add european hikes - https://en.wikipedia.org/wiki/European_long-distance_paths?fbclid=IwAR3zYWEqZNzSZraw6o39bLthlJIjRbPpeZ5P11ZPHSsv1Fh8rl2M8HEwcqo - need multi country display not based on termini
