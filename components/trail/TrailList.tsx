@@ -23,6 +23,7 @@ const TrailList = () => {
   const [filterTerm, setFilterTerm] = useState("");
   const [filterMonth, setFilterMonth] = useState(0);
   const [units, setUnits] = useState("miles");
+  const [showAdvanced, setShowAdvanced] = useState(false);
 
   const toggleUnits = () => {
     units === "miles" ? setUnits("kilometers") : setUnits("miles");
@@ -57,35 +58,18 @@ const TrailList = () => {
         </Col>
         <Col lg={{ span: 6, offset: 3 }}>
           <Row>
-            <Col md={6}>
+            <Col md={8}>
               <Form.Control
-                className="mb-3 shadow-sm"
+                className="mb-2 shadow-sm"
                 placeholder="Filter by trail name"
                 onChange={(event) => setFilterTerm(event.target.value)}
                 style={{ color: Colors.brown }}
               />
             </Col>
-            <Col md={6}>
-              <Form.Select
-                className={
-                  "mb-3 shadow-sm" + (filterMonth === 0 ? " text-muted" : "")
-                }
-                defaultValue={0}
-                onChange={(event) =>
-                  setFilterMonth(parseInt(event.target.value))
-                }
-              >
-                <option value={0} className="text-muted">
-                  Filter by start month
-                </option>
-                {Months.map((month, index) => (
-                  <option value={index + 1} key={index} className="text-dark">
-                    {month}
-                  </option>
-                ))}
-              </Form.Select>
-            </Col>
-            <Col md={12} className="mb-3 ps-3">
+            <Col
+              md={4}
+              className="mb-2 d-flex justify-content-left align-items-center"
+            >
               <Form.Check
                 inline
                 id="miles"
@@ -107,6 +91,65 @@ const TrailList = () => {
                 checked={units === "kilometers"}
               />
             </Col>
+            <Col md={12} className="mb-2">
+              <Form.Check
+                type="switch"
+                id="custom-switch"
+                label="Advanced filters"
+                checked={showAdvanced}
+                onChange={() => setShowAdvanced(!showAdvanced)}
+              />
+            </Col>
+            {showAdvanced && (
+              <>
+                <Col md={6}>
+                  <Form.Select
+                    className={
+                      "mb-3 shadow-sm" +
+                      (filterMonth === 0 ? " text-muted" : "")
+                    }
+                    defaultValue={0}
+                    onChange={(event) =>
+                      setFilterMonth(parseInt(event.target.value))
+                    }
+                  >
+                    <option value={0} className="text-muted">
+                      Filter by start month
+                    </option>
+                    {Months.map((month, index) => (
+                      <option
+                        value={index + 1}
+                        key={index}
+                        className="text-dark"
+                      >
+                        {month}
+                      </option>
+                    ))}
+                  </Form.Select>
+                </Col>
+                <Col md={6} >
+                  <Row>
+                    <Col sm={6}>
+                      <Form.Control
+                        className="mb-3 shadow-sm"
+                        placeholder="Min Length"
+                        onChange={(event) => setFilterTerm(event.target.value)}
+                        style={{ color: Colors.brown }}
+                      />
+                    </Col>
+                    <Col sm={6}>
+                      {" "}
+                      <Form.Control
+                        className="mb-3 shadow-sm"
+                        placeholder="Max Length"
+                        onChange={(event) => setFilterTerm(event.target.value)}
+                        style={{ color: Colors.brown }}
+                      />
+                    </Col>
+                  </Row>
+                </Col>
+              </>
+            )}
           </Row>
         </Col>
         <Col lg={{ span: 6, offset: 3 }} style={{ minHeight: 500 }}>
