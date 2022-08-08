@@ -21,31 +21,58 @@ const TrailList = () => {
   const sortedTrails = trails.sort((a, b) => a.length - b.length);
   const [trailsList, setTrailsList] = useState(sortedTrails);
   const [filterTerm, setFilterTerm] = useState("");
-  const [filterMonth, setFilterMonth] = useState(0);
   const [units, setUnits] = useState("miles");
+
+  // advanced filters
   const [showAdvanced, setShowAdvanced] = useState(false);
+  const [filterMonth, setFilterMonth] = useState(0);
+  const [maxLength, setMaxLength] = useState("");
+  const [minLength, setMinLength] = useState("");
 
   const toggleUnits = () => {
     units === "miles" ? setUnits("kilometers") : setUnits("miles");
   };
 
-  // filters based on filter term && month
+  // filters based on filter term, start month, min/max length
   useEffect(() => {
     let newTrailList = sortedTrails.filter((trail) =>
       trail.name.toLowerCase().includes(filterTerm.toLowerCase())
     );
-    if (filterMonth != 0) {
-      newTrailList = newTrailList.filter(
-        (trail) =>
-          (trail.terminusA.startDate != null &&
-            trail.terminusA.startDate.month == filterMonth) ||
-          (trail.terminusB &&
-            trail.terminusB.startDate != null &&
-            trail.terminusB.startDate.month == filterMonth)
-      );
+    if (showAdvanced) {
+      if (filterMonth != 0) {
+        newTrailList = newTrailList.filter(
+          (trail) =>
+            (trail.terminusA.startDate != null &&
+              trail.terminusA.startDate.month == filterMonth) ||
+            (trail.terminusB &&
+              trail.terminusB.startDate != null &&
+              trail.terminusB.startDate.month == filterMonth)
+        );
+      }
+      if (minLength != "" || maxLength != "") {
+        let lengthMultiplier = units === "kilometers" ? 1.61 : 1;
+        let minLengthInt = minLength === "" ? 0 : parseInt(minLength);
+        let maxLengthInt = maxLength === "" ? Infinity : parseInt(maxLength);
+        console.log({ minLengthInt, maxLengthInt });
+        newTrailList = newTrailList.filter((trail) => {
+          let trailLength = trail.length * lengthMultiplier;
+          if (trailLength > minLengthInt && trailLength < maxLengthInt)
+            return true;
+          return false;
+        });
+      }
     }
+
     setTrailsList(newTrailList);
-  }, [filterTerm, filterMonth, setTrailsList]);
+  }, [
+    minLength,
+    maxLength,
+    filterTerm,
+    filterMonth,
+    setTrailsList,
+    units,
+    showAdvanced,
+  ]);
 
   return (
     <Container className="mt-5" id="hikes">
@@ -56,9 +83,9 @@ const TrailList = () => {
           </h2>
           <p>{trails.length} hikes total</p>
         </Col>
-        <Col lg={{ span: 6, offset: 3 }}>
+        <Col lg={{ span: 8, offset: 2 }}>
           <Row>
-            <Col md={8}>
+            <Col xs={12} sm>
               <Form.Control
                 className="mb-2 shadow-sm"
                 placeholder="Filter by trail name"
@@ -67,8 +94,10 @@ const TrailList = () => {
               />
             </Col>
             <Col
+              xs={6}
+              sm={5}
               md={4}
-              className="mb-2 d-flex justify-content-left align-items-center"
+              className="mb-2 d-flex align-items-center"
             >
               <Form.Check
                 inline
@@ -91,7 +120,7 @@ const TrailList = () => {
                 checked={units === "kilometers"}
               />
             </Col>
-            <Col md={12} className="mb-2">
+            <Col xs={6} sm={12} className="mb-2 d-flex justify-content-end justify-content-sm-start">
               <Form.Check
                 type="switch"
                 id="custom-switch"
@@ -108,13 +137,13 @@ const TrailList = () => {
                       "mb-3 shadow-sm" +
                       (filterMonth === 0 ? " text-muted" : "")
                     }
-                    defaultValue={0}
+                    value={filterMonth}
                     onChange={(event) =>
                       setFilterMonth(parseInt(event.target.value))
                     }
                   >
                     <option value={0} className="text-muted">
-                      Filter by start month
+                      Start month
                     </option>
                     {Months.map((month, index) => (
                       <option
@@ -127,22 +156,23 @@ const TrailList = () => {
                     ))}
                   </Form.Select>
                 </Col>
-                <Col md={6} >
+                <Col md={6}>
                   <Row>
-                    <Col sm={6}>
+                    <Col xs={6} className="pe-1">
                       <Form.Control
                         className="mb-3 shadow-sm"
                         placeholder="Min Length"
-                        onChange={(event) => setFilterTerm(event.target.value)}
+                        value={minLength}
+                        onChange={(event) => setMinLength(event.target.value)}
                         style={{ color: Colors.brown }}
                       />
                     </Col>
-                    <Col sm={6}>
-                      {" "}
+                    <Col xs={6} className="ps-1">
                       <Form.Control
                         className="mb-3 shadow-sm"
                         placeholder="Max Length"
-                        onChange={(event) => setFilterTerm(event.target.value)}
+                        value={maxLength}
+                        onChange={(event) => setMaxLength(event.target.value)}
                         style={{ color: Colors.brown }}
                       />
                     </Col>
@@ -152,7 +182,7 @@ const TrailList = () => {
             )}
           </Row>
         </Col>
-        <Col lg={{ span: 6, offset: 3 }} style={{ minHeight: 500 }}>
+        <Col lg={{ span: 8, offset: 2 }} style={{ minHeight: 500 }}>
           {trailsList.length > 0 ? (
             trailsList.map((trail) => (
               <TrailCard trail={trail} key={trail.name} units={units} />

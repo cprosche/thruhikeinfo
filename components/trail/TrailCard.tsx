@@ -21,7 +21,7 @@ const TrailCard = ({
 }) => (
   <Card className="mb-3 shadow-sm">
     <Card.Body>
-      <Card.Title className="mb-1">
+      <Card.Title className="mb-1 text-bold">
         <TrailName name={name} length={length} offRoadLength={offRoadLength} />
       </Card.Title>
       <Card.Text>

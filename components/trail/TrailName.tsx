@@ -24,7 +24,9 @@ const TrailName = ({ name, length, offRoadLength }: IProps) => {
 
   return (
     <>
-      {name}{" "}
+      <span style={{ textTransform: "capitalize", fontWeight: 700 }}>
+        {name}
+      </span>{" "}
       <Badge pill bg={pillColor}>
         {offRoadDisplay}
       </Badge>
