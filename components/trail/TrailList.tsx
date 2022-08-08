@@ -52,7 +52,6 @@ const TrailList = () => {
         let lengthMultiplier = units === "kilometers" ? 1.61 : 1;
         let minLengthInt = minLength === "" ? 0 : parseInt(minLength);
         let maxLengthInt = maxLength === "" ? Infinity : parseInt(maxLength);
-        console.log({ minLengthInt, maxLengthInt });
         newTrailList = newTrailList.filter((trail) => {
           let trailLength = trail.length * lengthMultiplier;
           if (trailLength > minLengthInt && trailLength < maxLengthInt)
