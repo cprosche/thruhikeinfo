@@ -17,6 +17,11 @@ import TrailCard from "./TrailCard";
 // TODO: big project - add map
 // TODO: sort by terminus distance from certain post code???
 const TrailList = () => {
+  let totalLength = 0;
+  for (let i = 0; i < trails.length; i++) {
+    totalLength += trails[i].length;
+  }
+
   const sortedTrails = trails.sort((a, b) => a.length - b.length);
   const [trailsList, setTrailsList] = useState(sortedTrails);
   const [filterTerm, setFilterTerm] = useState("");
@@ -79,7 +84,10 @@ const TrailList = () => {
           <h2 className="mb-0" style={{ fontWeight: 700 }}>
             Thru Hikes
           </h2>
-          <p>{trails.length} hikes total</p>
+          <p>
+            {trails.length} hikes, {totalLength.toLocaleString("en-US")} miles
+            total
+          </p>
         </Col>
         <Col lg={{ span: 8, offset: 2 }}>
           <Row>
@@ -118,7 +126,11 @@ const TrailList = () => {
                 checked={units === "kilometers"}
               />
             </Col>
-            <Col xs={6} sm={12} className="mb-2 d-flex justify-content-end justify-content-sm-start">
+            <Col
+              xs={6}
+              sm={12}
+              className="mb-2 d-flex justify-content-end justify-content-sm-start"
+            >
               <Form.Check
                 type="switch"
                 id="custom-switch"
