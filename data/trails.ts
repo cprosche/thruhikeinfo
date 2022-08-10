@@ -746,4 +746,34 @@ export const trails: ITrail[] = [
       startDate: { month: 6, day: 15 },
     },
   },
+  {
+    name: "Camino Frances (Camino De Santiago)",
+    type: "Linear",
+    length: 490,
+    offRoadLength: null,
+    continent: "Europe",
+    trailAssociation: null,
+    terminusA: {
+      name: "Pilgrim Information Office SJPP",
+      country: "FR",
+      city: "Saint-Jean-Pied-de-Port",
+      region: "Nouvelle Aquitaine",
+      location: {
+        latitude: 43.52075349831533,
+        longitude: -1.1802544957502226,
+      },
+      startDate: { month: 4, day: 1 },
+    },
+    terminusB: {
+      name: "Cathedral of Santiago de Compostela",
+      country: "ES",
+      city: "Santiago de Compostela",
+      region: "Galicia",
+      location: {
+        latitude: 42.880635488173176,
+        longitude: -8.544646566334398,
+      },
+      startDate: { month: 4, day: 1 },
+    },
+  },
 ];
