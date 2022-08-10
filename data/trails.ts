@@ -27,6 +27,7 @@ export interface ITrail {
   type: string;
   length: number; // miles
   offRoadLength: number;
+  continent: string;
   trailAssociation: ITrailAssociation | null;
   terminusA: ITerminus;
   terminusB?: ITerminus;
@@ -47,6 +48,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 2190,
     offRoadLength: 2190,
+    continent: "North America",
     trailAssociation: {
       name: "Appalachian Trail Conservancy",
       url: "https://appalachiantrail.org/",
@@ -79,6 +81,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 3100,
     offRoadLength: 2170,
+    continent: "North America",
     trailAssociation: {
       name: "Continental Divide Trail Coalition",
       url: "https://continentaldividetrail.org/",
@@ -111,6 +114,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 2650,
     offRoadLength: 2650,
+    continent: "North America",
     trailAssociation: {
       name: "Pacific Crest Trail Association",
       url: "https://www.pcta.org/",
@@ -143,6 +147,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 800,
     offRoadLength: null,
+    continent: "North America",
     trailAssociation: {
       name: "Arizona Trail Association",
       url: "https://aztrail.org/",
@@ -175,6 +180,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 567,
     offRoadLength: 567,
+    continent: "North America",
     trailAssociation: {
       name: "Colorado Trail Foundation",
       url: "https://coloradotrail.org/",
@@ -207,6 +213,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 1200,
     offRoadLength: 640,
+    continent: "North America",
     trailAssociation: {
       name: "Ice Age Trail Alliance",
       url: "https://www.iceagetrail.org/",
@@ -238,6 +245,7 @@ export const trails: ITrail[] = [
     name: "Florida Trail",
     type: "Linear",
     length: 1500,
+    continent: "North America",
     trailAssociation: {
       name: "Florida Trail Association",
       url: "https://floridatrail.org/",
@@ -271,6 +279,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 310,
     offRoadLength: 310,
+    continent: "North America",
     trailAssociation: {
       name: "Superior Hiking Trail Association",
       url: "https://superiorhiking.org/",
@@ -303,6 +312,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 1850,
     offRoadLength: null,
+    continent: "Australia",
     trailAssociation: {
       name: "Te Araroa Trust",
       url: "https://www.teararoa.org.nz/",
@@ -335,6 +345,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 1200,
     offRoadLength: null,
+    continent: "North America",
     trailAssociation: {
       name: "Pacific Northwest Trail Association",
       url: "https://www.pnt.org/",
@@ -367,6 +378,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 4800,
     offRoadLength: 3188,
+    continent: "North America",
     trailAssociation: {
       name: "North Country Trail Association",
       url: "https://northcountrytrail.org/",
@@ -399,6 +411,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 273,
     offRoadLength: 273,
+    continent: "North America",
     trailAssociation: {
       name: "Green Mountain Club",
       url: "https://www.greenmountainclub.org/the-long-trail/",
@@ -431,6 +444,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 211,
     offRoadLength: 211,
+    continent: "North America",
     trailAssociation: {
       name: "Pacific Crest Trail Association",
       url: "https://www.pcta.org/discover-the-trail/john-muir-trail/",
@@ -463,6 +477,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 335,
     offRoadLength: null,
+    continent: "North America",
     trailAssociation: {
       name: "Pinhoti Trail Alliance",
       url: "http://www.pinhotitrailalliance.org",
@@ -495,6 +510,7 @@ export const trails: ITrail[] = [
     type: "Loop",
     length: 93,
     offRoadLength: 93,
+    continent: "North America",
     trailAssociation: {
       name: "Washington Trails Association",
       url: "https://www.wta.org/go-hiking/hikes/wonderland-trail-thru-hike",
@@ -516,6 +532,7 @@ export const trails: ITrail[] = [
     type: "Loop",
     length: 42,
     offRoadLength: 42,
+    continent: "North America",
     trailAssociation: null,
     terminusA: {
       name: "Timberline Lodge",
@@ -534,6 +551,7 @@ export const trails: ITrail[] = [
     type: "Loop",
     length: 165,
     offRoadLength: null,
+    continent: "North America",
     trailAssociation: {
       name: "Tahoe Rim Trail Association",
       url: "https://tahoerimtrail.org/",
@@ -555,6 +573,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 280,
     offRoadLength: 280,
+    continent: "Europe",
     trailAssociation: null,
     terminusA: {
       name: "Northern Terminus",
@@ -584,6 +603,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 700,
     offRoadLength: null,
+    continent: "North America",
     trailAssociation: {
       name: "Great Divide Trail Association",
       url: "https://greatdividetrail.com/",
@@ -616,6 +636,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 40,
     offRoadLength: 40,
+    continent: "Australia",
     trailAssociation: {
       name: "Tasmanian Parks and Wildlife Service",
       url: "https://parks.tas.gov.au/explore-our-parks/cradle-mountain/overland-track",
@@ -648,6 +669,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 623,
     offRoadLength: null,
+    continent: "Australia",
     trailAssociation: {
       name: "Bibbulmun Track Foundation",
       url: "https://www.bibbulmuntrack.org.au/",
@@ -658,10 +680,10 @@ export const trails: ITrail[] = [
       city: "Kalamunda",
       region: "Western Australia",
       location: {
-        latitude: -31.959053544858854, 
+        latitude: -31.959053544858854,
         longitude: 116.0583162031077,
       },
-      startDate: { month: 4, day:  1},
+      startDate: { month: 4, day: 1 },
     },
     terminusB: {
       name: "Southern Terminus",
@@ -669,7 +691,7 @@ export const trails: ITrail[] = [
       city: "Albany",
       region: "Western Autralia",
       location: {
-        latitude: -35.02286264868417, 
+        latitude: -35.02286264868417,
         longitude: 117.88313582330085,
       },
       startDate: { month: 4, day: 1 },
@@ -680,6 +702,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 160,
     offRoadLength: 120,
+    continent: "Asia",
     trailAssociation: null,
     terminusA: {
       name: "Eastern Terminus",
@@ -687,8 +710,8 @@ export const trails: ITrail[] = [
       city: "Bhulbhule",
       region: "Gandaki",
       location: {
-        latitude: 28.2919871741505, 
-        longitude: 84.37662505114945, 
+        latitude: 28.2919871741505,
+        longitude: 84.37662505114945,
       },
       startDate: { month: 10, day: 1 },
     },
@@ -698,8 +721,8 @@ export const trails: ITrail[] = [
       city: "Nayapul",
       region: "Salyan",
       location: {
-        latitude: 28.29645212258597, 
-        longitude: 83.76767539109402, 
+        latitude: 28.29645212258597,
+        longitude: 83.76767539109402,
       },
       startDate: { month: 10, day: 1 },
     },
