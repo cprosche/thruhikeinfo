@@ -611,4 +611,97 @@ export const trails: ITrail[] = [
       startDate: null,
     },
   },
+  {
+    name: "Overland Track",
+    type: "Linear",
+    length: 40,
+    offRoadLength: 40,
+    trailAssociation: {
+      name: "Tasmanian Parks and Wildlife Service",
+      url: "https://parks.tas.gov.au/explore-our-parks/cradle-mountain/overland-track",
+    },
+    terminusA: {
+      name: "Southern Terminus",
+      country: "AU",
+      city: "Lake St Clair",
+      region: "Tasmania",
+      location: {
+        latitude: -42.1168524782245,
+        longitude: 146.17278604662647,
+      },
+      startDate: { month: 12, day: 1 },
+    },
+    terminusB: {
+      name: "Ronny Creek Carpark",
+      country: "AU",
+      city: "Cradle Mountain",
+      region: "Tasmania",
+      location: {
+        latitude: 145.94925417146916,
+        longitude: -41.63535926023452,
+      },
+      startDate: { month: 12, day: 1 },
+    },
+  },
+  {
+    name: "Bibbulmun Track",
+    type: "Linear",
+    length: 623,
+    offRoadLength: null,
+    trailAssociation: {
+      name: "Bibbulmun Track Foundation",
+      url: "https://www.bibbulmuntrack.org.au/",
+    },
+    terminusA: {
+      name: "Northern Terminus",
+      country: "AU",
+      city: "Kalamunda",
+      region: "Western Australia",
+      location: {
+        latitude: -31.959053544858854, 
+        longitude: 116.0583162031077,
+      },
+      startDate: { month: 4, day:  1},
+    },
+    terminusB: {
+      name: "Southern Terminus",
+      country: "AU",
+      city: "Albany",
+      region: "Western Autralia",
+      location: {
+        latitude: -35.02286264868417, 
+        longitude: 117.88313582330085,
+      },
+      startDate: { month: 4, day: 1 },
+    },
+  },
+  {
+    name: "Annapurna Circuit",
+    type: "Linear",
+    length: 160,
+    offRoadLength: 120,
+    trailAssociation: null,
+    terminusA: {
+      name: "Eastern Terminus",
+      country: "NP",
+      city: "Bhulbhule",
+      region: "Gandaki",
+      location: {
+        latitude: 28.2919871741505, 
+        longitude: 84.37662505114945, 
+      },
+      startDate: { month: 10, day: 1 },
+    },
+    terminusB: {
+      name: "Nayapul Trekking Starting Point",
+      country: "NP",
+      city: "Nayapul",
+      region: "Salyan",
+      location: {
+        latitude: 28.29645212258597, 
+        longitude: 83.76767539109402, 
+      },
+      startDate: { month: 10, day: 1 },
+    },
+  },
 ];
