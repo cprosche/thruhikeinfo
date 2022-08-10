@@ -727,4 +727,23 @@ export const trails: ITrail[] = [
       startDate: { month: 10, day: 1 },
     },
   },
+  {
+    name: "Tour du Mont Blanc",
+    type: "Loop",
+    length: 105,
+    offRoadLength: 105,
+    continent: "Europe",
+    trailAssociation: null,
+    terminusA: {
+      name: "Les Houches",
+      country: "FR",
+      city: "Les Houches",
+      region: "Provence-Alpes-Côte d'Azur",
+      location: {
+        latitude: 45.89043990314168,
+        longitude: 6.798559234215089,
+      },
+      startDate: { month: 6, day: 15 },
+    },
+  },
 ];
