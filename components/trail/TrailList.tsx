@@ -4,6 +4,7 @@ import { trails } from "../../data/trails";
 import Col from "../../node_modules/react-bootstrap/esm/Col";
 import Container from "../../node_modules/react-bootstrap/esm/Container";
 import Form from "../../node_modules/react-bootstrap/esm/Form";
+import InputGroup from "../../node_modules/react-bootstrap/esm/InputGroup";
 import Row from "../../node_modules/react-bootstrap/esm/Row";
 import { Colors } from "../../utils/colors";
 import TrailCard from "./TrailCard";
@@ -169,22 +170,30 @@ const TrailList = () => {
                 <Col md={6}>
                   <Row>
                     <Col xs={6} className="pe-1">
-                      <Form.Control
-                        className="mb-3 shadow-sm"
-                        placeholder="Min Length"
-                        value={minLength}
-                        onChange={(event) => setMinLength(event.target.value)}
-                        style={{ color: Colors.brown }}
-                      />
+                      <InputGroup className="mb-3 shadow-sm">
+                        <Form.Control
+                          placeholder="Min"
+                          value={minLength}
+                          onChange={(event) => setMinLength(event.target.value)}
+                          style={{ color: Colors.brown }}
+                        />
+                        <InputGroup.Text>
+                          {units === "miles" ? "miles" : "km"}
+                        </InputGroup.Text>
+                      </InputGroup>
                     </Col>
                     <Col xs={6} className="ps-1">
-                      <Form.Control
-                        className="mb-3 shadow-sm"
-                        placeholder="Max Length"
-                        value={maxLength}
-                        onChange={(event) => setMaxLength(event.target.value)}
-                        style={{ color: Colors.brown }}
-                      />
+                      <InputGroup className="mb-3 shadow-sm">
+                        <Form.Control
+                          placeholder="Max"
+                          value={maxLength}
+                          onChange={(event) => setMaxLength(event.target.value)}
+                          style={{ color: Colors.brown }}
+                        />
+                        <InputGroup.Text>
+                          {units === "miles" ? "miles" : "km"}
+                        </InputGroup.Text>
+                      </InputGroup>
                     </Col>
                   </Row>
                 </Col>
