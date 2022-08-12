@@ -11,7 +11,6 @@ import TrailCard from "./TrailCard";
 
 // TODO: change search to just "display: none" components to preserve state
 // TODO: trail filter options set from url params
-// TODO: filter by continent
 // TODO: filter by region/state
 // TODO: filter by time to complete
 
