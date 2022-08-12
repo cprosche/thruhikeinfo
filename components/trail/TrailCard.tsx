@@ -4,7 +4,7 @@ import TrailName from "./TrailName";
 import Card from "../../node_modules/react-bootstrap/esm/Card";
 import ListGroup from "../../node_modules/react-bootstrap/esm/ListGroup";
 import { Months } from "../../data/months";
-import CountryText from "./CountryText";
+import RegionText from "./RegionText";
 
 // TODO: make estimated start date component
 const TrailCard = ({
@@ -13,6 +13,7 @@ const TrailCard = ({
     type,
     length,
     offRoadLength,
+    continent,
     trailAssociation,
     terminusA,
     terminusB = null,
@@ -24,9 +25,10 @@ const TrailCard = ({
       <Card.Title className="mb-1 text-bold">
         <TrailName name={name} length={length} offRoadLength={offRoadLength} />
       </Card.Title>
-      <Card.Text>
-        <CountryText termini={{ terminusA, terminusB }} />
+      <Card.Text className="mb-0">
+        <RegionText termini={{ terminusA, terminusB }} />
       </Card.Text>
+      <Card.Text>Continent: {continent}</Card.Text>
     </Card.Body>
     <ListGroup className="list-group-flush">
       <ListGroup.Item>

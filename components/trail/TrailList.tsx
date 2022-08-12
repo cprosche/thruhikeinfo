@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Months } from "../../data/months";
 import { trails } from "../../data/trails";
 import Col from "../../node_modules/react-bootstrap/esm/Col";
@@ -22,11 +22,15 @@ const TrailList = () => {
   for (let i = 0; i < trails.length; i++) {
     totalLength += trails[i].length;
   }
-
+  const continents = useMemo(
+    () => Array.from(new Set(trails.map((trail) => trail.continent))),
+    [trails]
+  );
   const sortedTrails = trails.sort((a, b) => a.length - b.length);
   const [trailsList, setTrailsList] = useState(sortedTrails);
   const [filterTerm, setFilterTerm] = useState("");
   const [units, setUnits] = useState("miles");
+  const [selectedContinent, setSelectedContinent] = useState(0);
 
   // advanced filters
   const [showAdvanced, setShowAdvanced] = useState(false);
@@ -54,6 +58,12 @@ const TrailList = () => {
               trail.terminusB.startDate.month == filterMonth)
         );
       }
+      if (selectedContinent != 0) {
+        const continent = continents[selectedContinent - 1];
+        newTrailList = newTrailList.filter(
+          (trail) => trail.continent === continent
+        );
+      }
       if (minLength != "" || maxLength != "") {
         let lengthMultiplier = units === "kilometers" ? 1.61 : 1;
         let minLengthInt = minLength === "" ? 0 : parseInt(minLength);
@@ -76,6 +86,7 @@ const TrailList = () => {
     setTrailsList,
     units,
     showAdvanced,
+    selectedContinent,
   ]);
 
   return (
@@ -163,6 +174,31 @@ const TrailList = () => {
                         className="text-dark"
                       >
                         {month}
+                      </option>
+                    ))}
+                  </Form.Select>
+                </Col>
+                <Col md={6}>
+                  <Form.Select
+                    className={
+                      "mb-3 shadow-sm" +
+                      (selectedContinent === 0 ? " text-muted" : "")
+                    }
+                    value={selectedContinent}
+                    onChange={(event) =>
+                      setSelectedContinent(parseInt(event.target.value))
+                    }
+                  >
+                    <option value={0} className="text-muted">
+                      Continent
+                    </option>
+                    {continents.map((continent, index) => (
+                      <option
+                        value={index + 1}
+                        key={index}
+                        className="text-dark"
+                      >
+                        {continent}
                       </option>
                     ))}
                   </Form.Select>

@@ -1,6 +1,6 @@
 import { countryCodes } from "../../data/countryCodes";
 
-const CountryText = ({ termini: { terminusA, terminusB } }) => {
+const RegionText = ({ termini: { terminusA, terminusB } }) => {
   return (
     <>
       {terminusB && terminusA.country != terminusB.country ? (
@@ -15,4 +15,4 @@ const CountryText = ({ termini: { terminusA, terminusB } }) => {
   );
 };
 
-export default CountryText;
+export default RegionText;
