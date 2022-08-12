@@ -759,8 +759,8 @@ export const trails: ITrail[] = [
       city: "Saint-Jean-Pied-de-Port",
       region: "Nouvelle Aquitaine",
       location: {
-        latitude: 43.52075349831533,
-        longitude: -1.1802544957502226,
+        latitude: 43.1635848848777, 
+        longitude: -1.235808284659247,
       },
       startDate: { month: 4, day: 1 },
     },
