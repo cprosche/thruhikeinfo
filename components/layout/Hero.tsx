@@ -12,19 +12,23 @@ const Hero = () => (
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
-      height: 500
+      height: 500,
     }}
   >
-    <h1 className="display-5 fw-bold" style={{color: Colors.grey}}>Want to hike?</h1>
-    <div className="col-lg-6 mx-auto" style={{color: Colors.grey}}>
+    <h1 className="display-5 fw-bold" style={{ color: Colors.grey }}>
+      Want to hike?
+    </h1>
+    <div className="col-lg-6 mx-auto" style={{ color: Colors.grey }}>
       <p className="lead mb-4">
-        Information to help you plan your next big hike. This website is currently a work in progress and there will be a lot more useful information here in the near future.
+        Information to help you plan your next big hike. This website is
+        currently a work in progress and there will be a lot more useful
+        information here in the near future.
       </p>
       <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
         <a
           type="button"
           className="btn btn-primary btn-lg px-4 gap-3"
-          href="#hikes"
+          href="hikes"
         >
           Go To Hikes
         </a>

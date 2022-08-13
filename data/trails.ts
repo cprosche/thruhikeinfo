@@ -23,6 +23,7 @@ export interface ITerminus {
 }
 
 export interface ITrail {
+  slug: string;
   name: string;
   type: string;
   length: number; // miles
@@ -35,15 +36,10 @@ export interface ITrail {
 
 // TODO: add more trails
 // TODO: add milford track
-// TODO: add himalayas hikes
 // TODO: add south american hikes
-// TODO: add european hikes - https://en.wikipedia.org/wiki/European_long-distance_paths?fbclid=IwAR3zYWEqZNzSZraw6o39bLthlJIjRbPpeZ5P11ZPHSsv1Fh8rl2M8HEwcqo - need multi country display not based on termini
-
-// TODO: big project - add generated individual pages for trails
-// TODO: add trail subsections as seperate trails on individual pages
-// TODO: add links to multiple maps on individual pages
 export const trails: ITrail[] = [
   {
+    slug: "at",
     name: "Appalachian Trail",
     type: "Linear",
     length: 2190,
@@ -77,6 +73,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "cdt",
     name: "Continental Divide Trail",
     type: "Linear",
     length: 3100,
@@ -110,6 +107,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "pct",
     name: "Pacific Crest Trail",
     type: "Linear",
     length: 2650,
@@ -143,6 +141,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "azt",
     name: "Arizona Trail",
     type: "Linear",
     length: 800,
@@ -176,6 +175,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "ct",
     name: "Colorado Trail",
     type: "Linear",
     length: 567,
@@ -209,6 +209,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "iat",
     name: "Ice Age Trail",
     type: "Linear",
     length: 1200,
@@ -242,6 +243,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "ft",
     name: "Florida Trail",
     type: "Linear",
     length: 1500,
@@ -275,6 +277,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "sht",
     name: "Superior Hiking Trail",
     type: "Linear",
     length: 310,
@@ -308,6 +311,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "ta",
     name: "Te Araroa",
     type: "Linear",
     length: 1850,
@@ -341,6 +345,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "pnt",
     name: "Pacific Northwest Trail",
     type: "Linear",
     length: 1200,
@@ -374,6 +379,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "nct",
     name: "North Country Trail",
     type: "Linear",
     length: 4800,
@@ -407,6 +413,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "lt",
     name: "Long Trail",
     type: "Linear",
     length: 273,
@@ -440,6 +447,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "jmt",
     name: "John Muir Trail",
     type: "Linear",
     length: 211,
@@ -473,6 +481,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "pinhoti-trail",
     name: "Pinhoti Trail",
     type: "Linear",
     length: 335,
@@ -506,6 +515,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "wonderland-trail",
     name: "Wonderland Trail",
     type: "Loop",
     length: 93,
@@ -528,6 +538,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "timberline-trail",
     name: "Timberline Trail",
     type: "Loop",
     length: 42,
@@ -547,6 +558,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "tahoe-rim-trail",
     name: "Tahoe Rim Trail",
     type: "Loop",
     length: 165,
@@ -569,6 +581,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "kungsleden",
     name: "Kungsleden",
     type: "Linear",
     length: 280,
@@ -599,6 +612,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "gdt",
     name: "Great Divide Trail",
     type: "Linear",
     length: 700,
@@ -632,6 +646,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "overland-track",
     name: "Overland Track",
     type: "Linear",
     length: 40,
@@ -665,6 +680,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "bibbulmun-track",
     name: "Bibbulmun Track",
     type: "Linear",
     length: 623,
@@ -698,6 +714,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "annapurna-circuit",
     name: "Annapurna Circuit",
     type: "Linear",
     length: 160,
@@ -728,6 +745,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "tmb",
     name: "Tour du Mont Blanc",
     type: "Loop",
     length: 105,
@@ -747,6 +765,7 @@ export const trails: ITrail[] = [
     },
   },
   {
+    slug: "camino-frances",
     name: "Camino Frances (Camino De Santiago)",
     type: "Linear",
     length: 490,

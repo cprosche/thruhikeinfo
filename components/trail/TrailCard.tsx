@@ -9,6 +9,7 @@ import RegionText from "./RegionText";
 // TODO: make estimated start date component
 const TrailCard = ({
   trail: {
+    slug,
     name,
     type,
     length,
@@ -23,7 +24,12 @@ const TrailCard = ({
   <Card className="mb-3 shadow-sm">
     <Card.Body>
       <Card.Title className="mb-1 text-bold">
-        <TrailName name={name} length={length} offRoadLength={offRoadLength} />
+        <TrailName
+          name={name}
+          slug={slug}
+          length={length}
+          offRoadLength={offRoadLength}
+        />
       </Card.Title>
       <Card.Text className="mb-0">
         <RegionText termini={{ terminusA, terminusB }} />

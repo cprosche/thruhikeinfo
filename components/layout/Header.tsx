@@ -10,7 +10,7 @@ const Header = () => (
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link href="/#hikes">Hikes</Nav.Link>
+          <Nav.Link href="/hikes">Hikes</Nav.Link>
           <Nav.Link href="/submission">Submit A Hike</Nav.Link>
           <Nav.Link href="/slang">Trail Slang</Nav.Link>
         </Nav>
