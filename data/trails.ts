@@ -37,6 +37,7 @@ export interface ITrail {
 // TODO: add more trails
 // TODO: add milford track
 // TODO: add south american hikes
+// TODO: add more asian hikes
 export const trails: ITrail[] = [
   {
     slug: "at",
