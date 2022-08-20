@@ -7,6 +7,7 @@ import Col from "../node_modules/react-bootstrap/esm/Col";
 import Container from "../node_modules/react-bootstrap/esm/Container";
 import Row from "../node_modules/react-bootstrap/esm/Row";
 
+// TODO: add next.js static props and other static site gen components
 const Slang = () => {
   const [slangList, setSlangList] = useState(
     slang.sort((a, b) => a.term.localeCompare(b.term))
