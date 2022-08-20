@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useReducer, useState } from "react";
+import { useReducer } from "react";
 import { Months } from "../../data/months";
 import { trails } from "../../data/trails";
 import Col from "../../node_modules/react-bootstrap/esm/Col";
@@ -27,7 +27,6 @@ const ACTIONS = {
   SET_FILTER: 4,
 };
 
-// destructure actions
 const { TOGGLE_ADVANCED_FILTERS, RESET, TOGGLE_UNITS, SET_FILTER } = ACTIONS;
 
 const initialState = {
@@ -41,6 +40,7 @@ const initialState = {
   filterContinent: 0,
   minLength: 0,
   maxLength: Infinity,
+  trailsList: trails.sort((a, b) => a.length - b.length),
 };
 
 const reducer = (state, { type = null, payload = null }) => {
@@ -55,60 +55,58 @@ const reducer = (state, { type = null, payload = null }) => {
         units: state.units === "miles" ? "kilometers" : "miles",
       };
     case SET_FILTER:
-      return { ...state, ...payload };
+      return {
+        ...state,
+        ...payload,
+        trailsList: filterTrailsList(state, payload),
+      };
     default:
       return { ...state };
   }
 };
 
+const filterTrailsList = (state: any, payload: any) => {
+  const updatedState = { ...state, ...payload };
+  let trailsList = state.allTrailsSorted;
+  if (updatedState.filterTerm != "") {
+    trailsList = trailsList.filter((trail) =>
+      trail.name.toLowerCase().includes(updatedState.filterTerm.toLowerCase())
+    );
+  }
+  if (updatedState.showAdvanced) {
+    if (updatedState.filterMonth != 0) {
+      trailsList = trailsList.filter(
+        (trail) =>
+          (trail.terminusA.startDate != null &&
+            trail.terminusA.startDate.month == updatedState.filterMonth) ||
+          (trail.terminusB &&
+            trail.terminusB.startDate != null &&
+            trail.terminusB.startDate.month == updatedState.filterMonth)
+      );
+    }
+    if (updatedState.filterContinent != 0) {
+      const continent =
+        updatedState.continents[updatedState.filterContinent - 1];
+      trailsList = trailsList.filter((trail) => trail.continent === continent);
+    }
+    if (updatedState.minLength != 0 || updatedState.maxLength != Infinity) {
+      let lengthMultiplier = updatedState.units === "kilometers" ? 1.61 : 1;
+      trailsList = trailsList.filter((trail) => {
+        let trailLength = trail.length * lengthMultiplier;
+        if (
+          trailLength > updatedState.minLength &&
+          trailLength < updatedState.maxLength
+        )
+          return true;
+        return false;
+      });
+    }
+  }
+  return trailsList;
+};
+
 const TrailList = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  const [trailsList, setTrailsList] = useState(state.allTrailsSorted);
-
-  // filters based on filter term, start month, min/max length
-  useEffect(() => {
-    let newTrailList = state.allTrailsSorted.filter((trail) =>
-      trail.name.toLowerCase().includes(state.filterTerm.toLowerCase())
-    );
-    if (state.showAdvanced) {
-      if (state.filterMonth != 0) {
-        newTrailList = newTrailList.filter(
-          (trail) =>
-            (trail.terminusA.startDate != null &&
-              trail.terminusA.startDate.month == state.filterMonth) ||
-            (trail.terminusB &&
-              trail.terminusB.startDate != null &&
-              trail.terminusB.startDate.month == state.filterMonth)
-        );
-      }
-      if (state.filterContinent != 0) {
-        const continent = state.continents[state.filterContinent - 1];
-        newTrailList = newTrailList.filter(
-          (trail) => trail.continent === continent
-        );
-      }
-      if (state.minLength != 0 || state.maxLength != Infinity) {
-        let lengthMultiplier = state.units === "kilometers" ? 1.61 : 1;
-        newTrailList = newTrailList.filter((trail) => {
-          let trailLength = trail.length * lengthMultiplier;
-          if (trailLength > state.minLength && trailLength < state.maxLength)
-            return true;
-          return false;
-        });
-      }
-    }
-
-    setTrailsList(newTrailList);
-  }, [
-    state.minLength,
-    state.maxLength,
-    state.filterTerm,
-    state.filterMonth,
-    state.units,
-    state.showAdvanced,
-    state.filterContinent,
-  ]);
 
   return (
     <Container className="mt-5" id="hikes">
@@ -294,8 +292,8 @@ const TrailList = () => {
           </Row>
         </Col>
         <Col lg={{ span: 8, offset: 2 }} style={{ minHeight: 500 }}>
-          {trailsList.length > 0 ? (
-            trailsList.map((trail) => (
+          {state.trailsList.length > 0 ? (
+            state.trailsList.map((trail) => (
               <TrailCard trail={trail} key={trail.name} units={state.units} />
             ))
           ) : (
@@ -308,4 +306,3 @@ const TrailList = () => {
 };
 
 export default TrailList;
-// was 253 lines long
