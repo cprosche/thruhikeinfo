@@ -48,7 +48,11 @@ const reducer = (state, { type = null, payload = null }) => {
     case RESET:
       return { ...state, ...initialState };
     case TOGGLE_ADVANCED_FILTERS:
-      return { ...state, showAdvanced: !state.showAdvanced };
+      state.showAdvanced = !state.showAdvanced;
+      return {
+        ...state,
+        trailsList: filterTrailsList(state, payload),
+      };
     case TOGGLE_UNITS:
       return {
         ...state,
