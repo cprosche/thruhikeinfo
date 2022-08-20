@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useReducer, useState } from "react";
 import { Months } from "../../data/months";
 import { trails } from "../../data/trails";
 import Col from "../../node_modules/react-bootstrap/esm/Col";
@@ -7,6 +7,7 @@ import Form from "../../node_modules/react-bootstrap/esm/Form";
 import InputGroup from "../../node_modules/react-bootstrap/esm/InputGroup";
 import Row from "../../node_modules/react-bootstrap/esm/Row";
 import { Colors } from "../../utils/colors";
+import { getTotalLength } from "../../utils/getTotalLength";
 import TrailCard from "./TrailCard";
 
 // TODO: change search to just "display: none" components to preserve state
@@ -16,37 +17,57 @@ import TrailCard from "./TrailCard";
 
 // TODO: big project - add map
 // TODO: sort by terminus distance from certain post code???
-const TrailList = () => {
-  let totalLength = 0;
-  for (let i = 0; i < trails.length; i++) {
-    totalLength += trails[i].length;
+
+const ACTIONS = {
+  TOGGLE_ADVANCED_FILTERS: 1,
+  RESET: 2,
+  TOGGLE_UNITS: 3,
+};
+const { TOGGLE_ADVANCED_FILTERS, RESET, TOGGLE_UNITS } = ACTIONS;
+
+const initialState = {
+  showAdvanced: false,
+  totalLength: getTotalLength(trails),
+  continents: Array.from(new Set(trails.map((trail) => trail.continent))),
+  allTrailsSorted: trails.sort((a, b) => a.length - b.length),
+  units: "miles",
+};
+
+const reducer = (state = initialState, { type = null, payload = null }) => {
+  switch (type) {
+    case TOGGLE_ADVANCED_FILTERS:
+      return { ...state, showAdvanced: !state.showAdvanced };
+    case RESET:
+      return { ...state, ...initialState };
+    case TOGGLE_UNITS:
+      return {
+        ...state,
+        units: state.units === "miles" ? "kilometers" : "miles",
+      };
+    default:
+      return { ...state };
   }
-  const continents = useMemo(
-    () => Array.from(new Set(trails.map((trail) => trail.continent))),
-    [trails]
-  );
-  const sortedTrails = trails.sort((a, b) => a.length - b.length);
-  const [trailsList, setTrailsList] = useState(sortedTrails);
+};
+
+const TrailList = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const [trailsList, setTrailsList] = useState(state.allTrailsSorted);
   const [filterTerm, setFilterTerm] = useState("");
   const [units, setUnits] = useState("miles");
   const [selectedContinent, setSelectedContinent] = useState(0);
 
   // advanced filters
-  const [showAdvanced, setShowAdvanced] = useState(false);
   const [filterMonth, setFilterMonth] = useState(0);
   const [maxLength, setMaxLength] = useState("");
   const [minLength, setMinLength] = useState("");
 
-  const toggleUnits = () => {
-    units === "miles" ? setUnits("kilometers") : setUnits("miles");
-  };
-
   // filters based on filter term, start month, min/max length
   useEffect(() => {
-    let newTrailList = sortedTrails.filter((trail) =>
+    let newTrailList = state.allTrailsSorted.filter((trail) =>
       trail.name.toLowerCase().includes(filterTerm.toLowerCase())
     );
-    if (showAdvanced) {
+    if (state.showAdvanced) {
       if (filterMonth != 0) {
         newTrailList = newTrailList.filter(
           (trail) =>
@@ -58,13 +79,13 @@ const TrailList = () => {
         );
       }
       if (selectedContinent != 0) {
-        const continent = continents[selectedContinent - 1];
+        const continent = state.continents[selectedContinent - 1];
         newTrailList = newTrailList.filter(
           (trail) => trail.continent === continent
         );
       }
       if (minLength != "" || maxLength != "") {
-        let lengthMultiplier = units === "kilometers" ? 1.61 : 1;
+        let lengthMultiplier = state.units === "kilometers" ? 1.61 : 1;
         let minLengthInt = minLength === "" ? 0 : parseInt(minLength);
         let maxLengthInt = maxLength === "" ? Infinity : parseInt(maxLength);
         newTrailList = newTrailList.filter((trail) => {
@@ -83,8 +104,8 @@ const TrailList = () => {
     filterTerm,
     filterMonth,
     setTrailsList,
-    units,
-    showAdvanced,
+    state.units,
+    state.showAdvanced,
     selectedContinent,
   ]);
 
@@ -96,8 +117,8 @@ const TrailList = () => {
             Thru Hikes
           </h2>
           <p>
-            {trails.length} hikes, {totalLength.toLocaleString("en-US")} miles
-            total
+            {trails.length} hikes, {state.totalLength.toLocaleString("en-US")}{" "}
+            miles total
           </p>
         </Col>
         <Col lg={{ span: 8, offset: 2 }}>
@@ -123,8 +144,8 @@ const TrailList = () => {
                 value="miles"
                 name="units"
                 type="radio"
-                onChange={toggleUnits}
-                checked={units === "miles"}
+                onChange={() => dispatch({ type: TOGGLE_UNITS })}
+                checked={state.units === "miles"}
               />
               <Form.Check
                 inline
@@ -133,8 +154,8 @@ const TrailList = () => {
                 name="units"
                 type="radio"
                 value="miles"
-                onChange={toggleUnits}
-                checked={units === "kilometers"}
+                onChange={() => dispatch({ type: TOGGLE_UNITS })}
+                checked={state.units === "kilometers"}
               />
             </Col>
             <Col
@@ -146,11 +167,11 @@ const TrailList = () => {
                 type="switch"
                 id="custom-switch"
                 label="Advanced filters"
-                checked={showAdvanced}
-                onChange={() => setShowAdvanced(!showAdvanced)}
+                checked={state.showAdvanced}
+                onChange={() => dispatch({ type: TOGGLE_ADVANCED_FILTERS })}
               />
             </Col>
-            {showAdvanced && (
+            {state.showAdvanced && (
               <>
                 <Col md={6}>
                   <Form.Select
@@ -191,7 +212,7 @@ const TrailList = () => {
                     <option value={0} className="text-muted">
                       Continent
                     </option>
-                    {continents.map((continent, index) => (
+                    {state.continents.map((continent, index) => (
                       <option
                         value={index + 1}
                         key={index}
@@ -213,7 +234,7 @@ const TrailList = () => {
                           style={{ color: Colors.brown }}
                         />
                         <InputGroup.Text>
-                          {units === "miles" ? "miles" : "km"}
+                          {state.units === "miles" ? "miles" : "km"}
                         </InputGroup.Text>
                       </InputGroup>
                     </Col>
@@ -226,7 +247,7 @@ const TrailList = () => {
                           style={{ color: Colors.brown }}
                         />
                         <InputGroup.Text>
-                          {units === "miles" ? "miles" : "km"}
+                          {state.units === "miles" ? "miles" : "km"}
                         </InputGroup.Text>
                       </InputGroup>
                     </Col>
@@ -239,7 +260,7 @@ const TrailList = () => {
         <Col lg={{ span: 8, offset: 2 }} style={{ minHeight: 500 }}>
           {trailsList.length > 0 ? (
             trailsList.map((trail) => (
-              <TrailCard trail={trail} key={trail.name} units={units} />
+              <TrailCard trail={trail} key={trail.name} units={state.units} />
             ))
           ) : (
             <div>No results</div>
