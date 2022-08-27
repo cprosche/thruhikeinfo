@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import "../styles/globals.css";
 import { analytics } from "../utils/analytics";
 
+// TODO: add next.js static props and other static site gen components
 // TODO: add page for planned features
 // TODO: add sitemap
 function Application({ Component, pageProps }) {

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useReducer } from "react";
 import { Months } from "../../data/months";
 import { trails } from "../../data/trails";
 import Col from "../../node_modules/react-bootstrap/esm/Col";
@@ -7,6 +7,7 @@ import Form from "../../node_modules/react-bootstrap/esm/Form";
 import InputGroup from "../../node_modules/react-bootstrap/esm/InputGroup";
 import Row from "../../node_modules/react-bootstrap/esm/Row";
 import { Colors } from "../../utils/colors";
+import { getTotalLength } from "../../utils/getTotalLength";
 import TrailCard from "./TrailCard";
 
 // TODO: change search to just "display: none" components to preserve state
@@ -16,77 +17,100 @@ import TrailCard from "./TrailCard";
 
 // TODO: big project - add map
 // TODO: sort by terminus distance from certain post code???
-const TrailList = () => {
-  let totalLength = 0;
-  for (let i = 0; i < trails.length; i++) {
-    totalLength += trails[i].length;
+
+// set our actions, int values in a switch are very slightly the fastest
+// link: https://stackoverflow.com/questions/34571231/javascript-performance-switch-integer-vs-switch-string
+const ACTIONS = {
+  TOGGLE_ADVANCED_FILTERS: 1,
+  RESET: 2,
+  TOGGLE_UNITS: 3,
+  SET_FILTER: 4,
+};
+
+const { TOGGLE_ADVANCED_FILTERS, RESET, TOGGLE_UNITS, SET_FILTER } = ACTIONS;
+
+const initialState = {
+  showAdvanced: false,
+  totalLength: getTotalLength(trails),
+  continents: Array.from(new Set(trails.map((trail) => trail.continent))),
+  allTrailsSorted: trails.sort((a, b) => a.length - b.length),
+  units: "miles",
+  filterTerm: "",
+  filterMonth: 0,
+  filterContinent: 0,
+  minLength: 0,
+  maxLength: Infinity,
+  trailsList: trails.sort((a, b) => a.length - b.length),
+};
+
+const reducer = (state, { type = null, payload = null }) => {
+  switch (type) {
+    case RESET:
+      return { ...state, ...initialState };
+    case TOGGLE_ADVANCED_FILTERS:
+      state.showAdvanced = !state.showAdvanced;
+      return {
+        ...state,
+        trailsList: filterTrailsList(state, payload),
+      };
+    case TOGGLE_UNITS:
+      return {
+        ...state,
+        units: state.units === "miles" ? "kilometers" : "miles",
+      };
+    case SET_FILTER:
+      return {
+        ...state,
+        ...payload,
+        trailsList: filterTrailsList(state, payload),
+      };
+    default:
+      return { ...state };
   }
-  const continents = useMemo(
-    () => Array.from(new Set(trails.map((trail) => trail.continent))),
-    [trails]
-  );
-  const sortedTrails = trails.sort((a, b) => a.length - b.length);
-  const [trailsList, setTrailsList] = useState(sortedTrails);
-  const [filterTerm, setFilterTerm] = useState("");
-  const [units, setUnits] = useState("miles");
-  const [selectedContinent, setSelectedContinent] = useState(0);
+};
 
-  // advanced filters
-  const [showAdvanced, setShowAdvanced] = useState(false);
-  const [filterMonth, setFilterMonth] = useState(0);
-  const [maxLength, setMaxLength] = useState("");
-  const [minLength, setMinLength] = useState("");
-
-  const toggleUnits = () => {
-    units === "miles" ? setUnits("kilometers") : setUnits("miles");
-  };
-
-  // filters based on filter term, start month, min/max length
-  useEffect(() => {
-    let newTrailList = sortedTrails.filter((trail) =>
-      trail.name.toLowerCase().includes(filterTerm.toLowerCase())
+const filterTrailsList = (state: any, payload: any) => {
+  const updatedState = { ...state, ...payload };
+  let trailsList = state.allTrailsSorted;
+  if (updatedState.filterTerm != "") {
+    trailsList = trailsList.filter((trail) =>
+      trail.name.toLowerCase().includes(updatedState.filterTerm.toLowerCase())
     );
-    if (showAdvanced) {
-      if (filterMonth != 0) {
-        newTrailList = newTrailList.filter(
-          (trail) =>
-            (trail.terminusA.startDate != null &&
-              trail.terminusA.startDate.month == filterMonth) ||
-            (trail.terminusB &&
-              trail.terminusB.startDate != null &&
-              trail.terminusB.startDate.month == filterMonth)
-        );
-      }
-      if (selectedContinent != 0) {
-        const continent = continents[selectedContinent - 1];
-        newTrailList = newTrailList.filter(
-          (trail) => trail.continent === continent
-        );
-      }
-      if (minLength != "" || maxLength != "") {
-        let lengthMultiplier = units === "kilometers" ? 1.61 : 1;
-        let minLengthInt = minLength === "" ? 0 : parseInt(minLength);
-        let maxLengthInt = maxLength === "" ? Infinity : parseInt(maxLength);
-        newTrailList = newTrailList.filter((trail) => {
-          let trailLength = trail.length * lengthMultiplier;
-          if (trailLength > minLengthInt && trailLength < maxLengthInt)
-            return true;
-          return false;
-        });
-      }
+  }
+  if (updatedState.showAdvanced) {
+    if (updatedState.filterMonth != 0) {
+      trailsList = trailsList.filter(
+        (trail) =>
+          (trail.terminusA.startDate != null &&
+            trail.terminusA.startDate.month == updatedState.filterMonth) ||
+          (trail.terminusB &&
+            trail.terminusB.startDate != null &&
+            trail.terminusB.startDate.month == updatedState.filterMonth)
+      );
     }
+    if (updatedState.filterContinent != 0) {
+      const continent =
+        updatedState.continents[updatedState.filterContinent - 1];
+      trailsList = trailsList.filter((trail) => trail.continent === continent);
+    }
+    if (updatedState.minLength != 0 || updatedState.maxLength != Infinity) {
+      let lengthMultiplier = updatedState.units === "kilometers" ? 1.61 : 1;
+      trailsList = trailsList.filter((trail) => {
+        let trailLength = trail.length * lengthMultiplier;
+        if (
+          trailLength > updatedState.minLength &&
+          trailLength < updatedState.maxLength
+        )
+          return true;
+        return false;
+      });
+    }
+  }
+  return trailsList;
+};
 
-    setTrailsList(newTrailList);
-  }, [
-    minLength,
-    maxLength,
-    filterTerm,
-    filterMonth,
-    setTrailsList,
-    units,
-    showAdvanced,
-    selectedContinent,
-  ]);
+const TrailList = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <Container className="mt-5" id="hikes">
@@ -96,8 +120,8 @@ const TrailList = () => {
             Thru Hikes
           </h2>
           <p>
-            {trails.length} hikes, {totalLength.toLocaleString("en-US")} miles
-            total
+            {trails.length} hikes, {state.totalLength.toLocaleString("en-US")}{" "}
+            miles total
           </p>
         </Col>
         <Col lg={{ span: 8, offset: 2 }}>
@@ -106,7 +130,12 @@ const TrailList = () => {
               <Form.Control
                 className="mb-2 shadow-sm"
                 placeholder="Filter by trail name"
-                onChange={(event) => setFilterTerm(event.target.value)}
+                onChange={(event) =>
+                  dispatch({
+                    type: SET_FILTER,
+                    payload: { filterTerm: event.target.value },
+                  })
+                }
                 style={{ color: Colors.brown }}
               />
             </Col>
@@ -123,8 +152,8 @@ const TrailList = () => {
                 value="miles"
                 name="units"
                 type="radio"
-                onChange={toggleUnits}
-                checked={units === "miles"}
+                onChange={() => dispatch({ type: TOGGLE_UNITS })}
+                checked={state.units === "miles"}
               />
               <Form.Check
                 inline
@@ -133,8 +162,8 @@ const TrailList = () => {
                 name="units"
                 type="radio"
                 value="miles"
-                onChange={toggleUnits}
-                checked={units === "kilometers"}
+                onChange={() => dispatch({ type: TOGGLE_UNITS })}
+                checked={state.units === "kilometers"}
               />
             </Col>
             <Col
@@ -146,21 +175,24 @@ const TrailList = () => {
                 type="switch"
                 id="custom-switch"
                 label="Advanced filters"
-                checked={showAdvanced}
-                onChange={() => setShowAdvanced(!showAdvanced)}
+                checked={state.showAdvanced}
+                onChange={() => dispatch({ type: TOGGLE_ADVANCED_FILTERS })}
               />
             </Col>
-            {showAdvanced && (
+            {state.showAdvanced && (
               <>
                 <Col md={6}>
                   <Form.Select
                     className={
                       "mb-3 shadow-sm" +
-                      (filterMonth === 0 ? " text-muted" : "")
+                      (state.filterMonth === 0 ? " text-muted" : "")
                     }
-                    value={filterMonth}
+                    value={state.filterMonth}
                     onChange={(event) =>
-                      setFilterMonth(parseInt(event.target.value))
+                      dispatch({
+                        type: SET_FILTER,
+                        payload: { filterMonth: parseInt(event.target.value) },
+                      })
                     }
                   >
                     <option value={0} className="text-muted">
@@ -181,17 +213,22 @@ const TrailList = () => {
                   <Form.Select
                     className={
                       "mb-3 shadow-sm" +
-                      (selectedContinent === 0 ? " text-muted" : "")
+                      (state.filterContinent === 0 ? " text-muted" : "")
                     }
-                    value={selectedContinent}
+                    value={state.filterContinent}
                     onChange={(event) =>
-                      setSelectedContinent(parseInt(event.target.value))
+                      dispatch({
+                        type: SET_FILTER,
+                        payload: {
+                          filterContinent: parseInt(event.target.value),
+                        },
+                      })
                     }
                   >
                     <option value={0} className="text-muted">
                       Continent
                     </option>
-                    {continents.map((continent, index) => (
+                    {state.continents.map((continent, index) => (
                       <option
                         value={index + 1}
                         key={index}
@@ -208,12 +245,22 @@ const TrailList = () => {
                       <InputGroup className="mb-3 shadow-sm">
                         <Form.Control
                           placeholder="Min"
-                          value={minLength}
-                          onChange={(event) => setMinLength(event.target.value)}
+                          value={state.minLength == 0 ? "" : state.minLength}
+                          onChange={(event) =>
+                            dispatch({
+                              type: SET_FILTER,
+                              payload: {
+                                minLength:
+                                  event.target.value === ""
+                                    ? 0
+                                    : parseInt(event.target.value),
+                              },
+                            })
+                          }
                           style={{ color: Colors.brown }}
                         />
                         <InputGroup.Text>
-                          {units === "miles" ? "miles" : "km"}
+                          {state.units === "miles" ? "miles" : "km"}
                         </InputGroup.Text>
                       </InputGroup>
                     </Col>
@@ -221,12 +268,24 @@ const TrailList = () => {
                       <InputGroup className="mb-3 shadow-sm">
                         <Form.Control
                           placeholder="Max"
-                          value={maxLength}
-                          onChange={(event) => setMaxLength(event.target.value)}
+                          value={
+                            state.maxLength == Infinity ? "" : state.maxLength
+                          }
+                          onChange={(event) =>
+                            dispatch({
+                              type: SET_FILTER,
+                              payload: {
+                                maxLength:
+                                  event.target.value === ""
+                                    ? Infinity
+                                    : parseInt(event.target.value),
+                              },
+                            })
+                          }
                           style={{ color: Colors.brown }}
                         />
                         <InputGroup.Text>
-                          {units === "miles" ? "miles" : "km"}
+                          {state.units === "miles" ? "miles" : "km"}
                         </InputGroup.Text>
                       </InputGroup>
                     </Col>
@@ -237,9 +296,9 @@ const TrailList = () => {
           </Row>
         </Col>
         <Col lg={{ span: 8, offset: 2 }} style={{ minHeight: 500 }}>
-          {trailsList.length > 0 ? (
-            trailsList.map((trail) => (
-              <TrailCard trail={trail} key={trail.name} units={units} />
+          {state.trailsList.length > 0 ? (
+            state.trailsList.map((trail) => (
+              <TrailCard trail={trail} key={trail.name} units={state.units} />
             ))
           ) : (
             <div>No results</div>
