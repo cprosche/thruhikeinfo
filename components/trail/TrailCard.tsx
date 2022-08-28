@@ -37,7 +37,6 @@ const TrailCard = ({
       <Card.Text className="mb-0">
         <RegionText termini={{ terminusA, terminusB }} />
       </Card.Text>
-      <Card.Text>Continent: {continent}</Card.Text>
     </Card.Body>
     <ListGroup className="list-group-flush">
       <ListGroup.Item>
@@ -47,28 +46,28 @@ const TrailCard = ({
         <Card.Text className="mb-2">Trail Type: {type}</Card.Text>
         {type === "Linear" ? (
           <>
-            <Card.Text className="mb-1">
+            <Card.Text className={terminusA.startDate ? "mb-1" : "mb-2"}>
               <TrailTerminus terminus={terminusA} label={"Terminus A"} />
             </Card.Text>
-            <Card.Text className="text-muted mb-2">
-              Estimated Best Start Date*:{" "}
-              {terminusA.startDate
-                ? months[terminusA.startDate.month - 1] +
+            {terminusA.startDate && (
+              <Card.Text className="text-muted mb-2">
+                Estimated Best Start Date*:{" "}
+                {months[terminusA.startDate.month - 1] +
                   " " +
-                  terminusA.startDate.day
-                : "N/a"}
-            </Card.Text>
-            <Card.Text className="mb-1">
+                  terminusA.startDate.day}
+              </Card.Text>
+            )}
+            <Card.Text className={terminusB.startDate ? "mb-1" : "mb-2"}>
               <TrailTerminus terminus={terminusB} label={"Terminus B"} />
             </Card.Text>
-            <Card.Text className="text-muted">
-              Estimated Best Start Date*:{" "}
-              {terminusB.startDate
-                ? months[terminusB.startDate.month - 1] +
+            {terminusB.startDate && (
+              <Card.Text className="text-muted">
+                Estimated Best Start Date*:{" "}
+                {months[terminusB.startDate.month - 1] +
                   " " +
-                  terminusB.startDate.day
-                : "N/a"}
-            </Card.Text>
+                  terminusB.startDate.day}
+              </Card.Text>
+            )}
           </>
         ) : (
           <>
