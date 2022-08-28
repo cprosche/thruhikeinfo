@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { Months } from "../../data/months";
+import { months } from "../../data/months";
 import { trails } from "../../data/trails";
 import Col from "../../node_modules/react-bootstrap/esm/Col";
 import Container from "../../node_modules/react-bootstrap/esm/Container";
@@ -14,6 +14,7 @@ import TrailCard from "./TrailCard";
 // TODO: trail filter options set from url params
 // TODO: filter by region/state
 // TODO: filter by time to complete
+// TODO: type filter
 
 // TODO: big project - add map
 // TODO: sort by terminus distance from certain post code???
@@ -198,7 +199,7 @@ const TrailList = () => {
                     <option value={0} className="text-muted">
                       Start month
                     </option>
-                    {Months.map((month, index) => (
+                    {months.map((month, index) => (
                       <option
                         value={index + 1}
                         key={index}

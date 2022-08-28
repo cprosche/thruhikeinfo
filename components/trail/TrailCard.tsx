@@ -3,8 +3,12 @@ import TrailTerminus from "./TrailTerminus";
 import TrailName from "./TrailName";
 import Card from "../../node_modules/react-bootstrap/esm/Card";
 import ListGroup from "../../node_modules/react-bootstrap/esm/ListGroup";
-import { Months } from "../../data/months";
+import { months } from "../../data/months";
 import RegionText from "./RegionText";
+import Link from "../../node_modules/next/link";
+import Button from "../../node_modules/react-bootstrap/esm/Button";
+import { FontAwesomeIcon } from "../../node_modules/@fortawesome/react-fontawesome/index";
+import { faArrowRight } from "../../node_modules/@fortawesome/free-solid-svg-icons/index";
 
 // TODO: make estimated start date component
 const TrailCard = ({
@@ -15,7 +19,6 @@ const TrailCard = ({
     length,
     offRoadLength,
     continent,
-    trailAssociation,
     terminusA,
     terminusB = null,
   },
@@ -50,7 +53,7 @@ const TrailCard = ({
             <Card.Text className="text-muted mb-2">
               Estimated Best Start Date*:{" "}
               {terminusA.startDate
-                ? Months[terminusA.startDate.month - 1] +
+                ? months[terminusA.startDate.month - 1] +
                   " " +
                   terminusA.startDate.day
                 : "N/a"}
@@ -61,7 +64,7 @@ const TrailCard = ({
             <Card.Text className="text-muted">
               Estimated Best Start Date*:{" "}
               {terminusB.startDate
-                ? Months[terminusB.startDate.month - 1] +
+                ? months[terminusB.startDate.month - 1] +
                   " " +
                   terminusB.startDate.day
                 : "N/a"}
@@ -75,7 +78,7 @@ const TrailCard = ({
             <Card.Text className="text-muted mb-2">
               Estimated Best Start Date*:{" "}
               {terminusA.startDate
-                ? Months[terminusA.startDate.month - 1] +
+                ? months[terminusA.startDate.month - 1] +
                   " " +
                   terminusA.startDate.day
                 : "N/a"}
@@ -83,14 +86,17 @@ const TrailCard = ({
           </>
         )}
       </ListGroup.Item>
-      {trailAssociation && (
-        <ListGroup.Item>
-          <Card.Text>
-            Trail Association:{" "}
-            <a href={trailAssociation.url}>{trailAssociation.name}</a>
-          </Card.Text>
-        </ListGroup.Item>
-      )}
+      <ListGroup.Item>
+        <Link
+          href={`/hikes/${slug}`}
+          className="btn btn-primary"
+          style={{ textTransform: "capitalize", fontWeight: 700 }}
+        >
+          <Button>
+            More details <FontAwesomeIcon icon={faArrowRight} />
+          </Button>
+        </Link>
+      </ListGroup.Item>
     </ListGroup>
   </Card>
 );

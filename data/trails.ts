@@ -25,6 +25,7 @@ export interface ITerminus {
 export interface ITrail {
   slug: string;
   name: string;
+  aliases?: string[];
   type: string;
   length: number; // miles
   offRoadLength: number;
@@ -38,10 +39,12 @@ export interface ITrail {
 // TODO: add milford track
 // TODO: add south american hikes
 // TODO: add more asian hikes
+// TODO: add more aliases
 export const trails: ITrail[] = [
   {
     slug: "at",
     name: "Appalachian Trail",
+    aliases: ["AT", "Appalachian National Scenic Trail"],
     type: "Linear",
     length: 2190,
     offRoadLength: 2190,
@@ -76,6 +79,7 @@ export const trails: ITrail[] = [
   {
     slug: "cdt",
     name: "Continental Divide Trail",
+    aliases: ["CDT", "Continental Divide National Scenic Trail"],
     type: "Linear",
     length: 3100,
     offRoadLength: 2170,
@@ -110,6 +114,7 @@ export const trails: ITrail[] = [
   {
     slug: "pct",
     name: "Pacific Crest Trail",
+    aliases: ["PCT", "Pacific Crest National Scenic Trail"],
     type: "Linear",
     length: 2650,
     offRoadLength: 2650,
@@ -144,6 +149,7 @@ export const trails: ITrail[] = [
   {
     slug: "azt",
     name: "Arizona Trail",
+    aliases: ["AZT", "Arizona National Scenic Trail"],
     type: "Linear",
     length: 800,
     offRoadLength: null,
@@ -178,6 +184,7 @@ export const trails: ITrail[] = [
   {
     slug: "ct",
     name: "Colorado Trail",
+    aliases: ["CT"],
     type: "Linear",
     length: 567,
     offRoadLength: 567,
@@ -212,6 +219,7 @@ export const trails: ITrail[] = [
   {
     slug: "iat",
     name: "Ice Age Trail",
+    aliases: ["IAT", "Ice Age National Scenic Trail"],
     type: "Linear",
     length: 1200,
     offRoadLength: 640,
@@ -246,6 +254,7 @@ export const trails: ITrail[] = [
   {
     slug: "ft",
     name: "Florida Trail",
+    aliases: ["FT", "Florida National Scenic Trail"],
     type: "Linear",
     length: 1500,
     continent: "North America",
@@ -280,6 +289,7 @@ export const trails: ITrail[] = [
   {
     slug: "sht",
     name: "Superior Hiking Trail",
+    aliases: ["SHT"],
     type: "Linear",
     length: 310,
     offRoadLength: 310,
@@ -314,10 +324,11 @@ export const trails: ITrail[] = [
   {
     slug: "ta",
     name: "Te Araroa",
+    aliases: ["TA"],
     type: "Linear",
     length: 1850,
     offRoadLength: null,
-    continent: "Australia",
+    continent: "Oceania",
     trailAssociation: {
       name: "Te Araroa Trust",
       url: "https://www.teararoa.org.nz/",
@@ -334,7 +345,7 @@ export const trails: ITrail[] = [
       startDate: { month: 11, day: 15 },
     },
     terminusB: {
-      name: "Stirling Point",
+      name: "Stirling Point Trailhead",
       country: "NZ",
       region: "South Island",
       city: "Bluff",
@@ -348,6 +359,7 @@ export const trails: ITrail[] = [
   {
     slug: "pnt",
     name: "Pacific Northwest Trail",
+    aliases: ["PNT", "Pacific Northwest National Scenic Trail"],
     type: "Linear",
     length: 1200,
     offRoadLength: null,
@@ -368,7 +380,7 @@ export const trails: ITrail[] = [
       startDate: { month: 6, day: 15 },
     },
     terminusB: {
-      name: "Cape Alava",
+      name: "Cape Alava Trailhead",
       country: "US",
       region: "Washington",
       city: "Olympic National Park",
@@ -382,6 +394,7 @@ export const trails: ITrail[] = [
   {
     slug: "nct",
     name: "North Country Trail",
+    aliases: ["NCT", "North Country National Scenic Trail"],
     type: "Linear",
     length: 4800,
     offRoadLength: 3188,
@@ -416,6 +429,7 @@ export const trails: ITrail[] = [
   {
     slug: "lt",
     name: "Long Trail",
+    aliases: ["LT"],
     type: "Linear",
     length: 273,
     offRoadLength: 273,
@@ -450,6 +464,7 @@ export const trails: ITrail[] = [
   {
     slug: "jmt",
     name: "John Muir Trail",
+    aliases: ["JMT"],
     type: "Linear",
     length: 211,
     offRoadLength: 211,
@@ -527,7 +542,7 @@ export const trails: ITrail[] = [
       url: "https://www.wta.org/go-hiking/hikes/wonderland-trail-thru-hike",
     },
     terminusA: {
-      name: "Longmire",
+      name: "Longmire Trailhead",
       country: "US",
       city: "Packwood",
       region: "Washington",
@@ -570,7 +585,7 @@ export const trails: ITrail[] = [
       url: "https://tahoerimtrail.org/",
     },
     terminusA: {
-      name: "64 Acres",
+      name: "64 Acres Trailhead",
       country: "US",
       city: "Tahoe City",
       region: "California",
@@ -615,6 +630,7 @@ export const trails: ITrail[] = [
   {
     slug: "gdt",
     name: "Great Divide Trail",
+    aliases: ["GDT"],
     type: "Linear",
     length: 700,
     offRoadLength: null,
@@ -748,13 +764,14 @@ export const trails: ITrail[] = [
   {
     slug: "tmb",
     name: "Tour du Mont Blanc",
+    aliases: ["TMB"],
     type: "Loop",
     length: 105,
     offRoadLength: 105,
     continent: "Europe",
     trailAssociation: null,
     terminusA: {
-      name: "Les Houches",
+      name: "Les Houches Trailhead",
       country: "FR",
       city: "Les Houches",
       region: "Provence-Alpes-Côte d'Azur",
@@ -768,6 +785,7 @@ export const trails: ITrail[] = [
   {
     slug: "camino-frances",
     name: "Camino Frances (Camino De Santiago)",
+    aliases: ["The French Way"],
     type: "Linear",
     length: 490,
     offRoadLength: null,
@@ -779,7 +797,7 @@ export const trails: ITrail[] = [
       city: "Saint-Jean-Pied-de-Port",
       region: "Nouvelle Aquitaine",
       location: {
-        latitude: 43.1635848848777, 
+        latitude: 43.1635848848777,
         longitude: -1.235808284659247,
       },
       startDate: { month: 4, day: 1 },

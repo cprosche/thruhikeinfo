@@ -1,4 +1,4 @@
-export const Months = [
+export const months = [
   "January",
   "February",
   "March",

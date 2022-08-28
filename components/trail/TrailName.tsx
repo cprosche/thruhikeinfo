@@ -1,4 +1,3 @@
-import Link from "../../node_modules/next/link";
 import Badge from "../../node_modules/react-bootstrap/esm/Badge";
 
 interface IProps {
@@ -9,7 +8,7 @@ interface IProps {
 }
 
 // TODO: improve pill responsive
-const TrailName = ({ slug, name, length, offRoadLength }: IProps) => {
+const TrailName = ({ name, length, offRoadLength }: IProps) => {
   const offRoadPercent = Math.ceil((offRoadLength / length) * 100);
   const offRoadDisplay = offRoadPercent
     ? `${offRoadPercent}%* off road`
@@ -26,12 +25,7 @@ const TrailName = ({ slug, name, length, offRoadLength }: IProps) => {
 
   return (
     <>
-      <Link
-        href={`/hikes/${slug}`}
-        style={{ textTransform: "capitalize", fontWeight: 700 }}
-      >
-        {name}
-      </Link>{" "}
+      {name}{" "}
       <Badge pill bg={pillColor}>
         {offRoadDisplay}
       </Badge>
