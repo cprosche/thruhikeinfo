@@ -11,6 +11,8 @@ import { faArrowLeft } from "../../node_modules/@fortawesome/free-solid-svg-icon
 import { countryCodes } from "../../data/countryCodes";
 import { months } from "../../data/months";
 import Head from "../../node_modules/next/head";
+import Table from "../../node_modules/react-bootstrap/esm/Table";
+import TrailInfoTable from "../../components/trail/TrailInfoTable";
 
 export const getStaticPaths = () => {
   const paths = trails.map((trail) => {
@@ -69,7 +71,11 @@ const TrailPage = ({
       <Layout>
         <Container>
           <Row>
-            <Col lg={{ span: 8, offset: 2 }} style={{ minHeight: "78vh" }}>
+            <Col
+              lg={{ span: 8, offset: 2 }}
+              style={{ minHeight: "78vh" }}
+              className="mb-5"
+            >
               <div className="mt-4 mb-3">
                 <Link href={`/hikes#${slug}`}>
                   <Button>
@@ -160,6 +166,19 @@ const TrailPage = ({
                   for the {name} as its trail association.
                 </p>
               )}
+              <h3>Information</h3>
+              <TrailInfoTable
+                trail={{
+                  name,
+                  length,
+                  aliases,
+                  terminusA,
+                  terminusB,
+                  trailAssociation,
+                  type,
+                  continent,
+                }}
+              />
             </Col>
           </Row>
         </Container>
