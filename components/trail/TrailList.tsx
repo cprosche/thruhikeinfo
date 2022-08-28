@@ -168,9 +168,8 @@ const TrailList = () => {
               />
             </Col>
             <Col
-              xs={6}
-              sm={12}
-              className="mb-2 d-flex justify-content-end justify-content-sm-start"
+              xs={12}
+              className="mb-2 d-flex justify-content-start"
             >
               <Form.Check
                 type="switch"
