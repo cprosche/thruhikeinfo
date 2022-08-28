@@ -45,6 +45,7 @@ const arrayToList = (array) => {
 // TODO: add links to multiple maps on individual pages
 const TrailPage = ({
   trail: {
+    slug,
     name,
     length,
     aliases,
@@ -70,7 +71,7 @@ const TrailPage = ({
           <Row>
             <Col lg={{ span: 8, offset: 2 }} style={{ minHeight: "78vh" }}>
               <div className="mt-4 mb-3">
-                <Link href={`/hikes`}>
+                <Link href={`/hikes#${slug}`}>
                   <Button>
                     <FontAwesomeIcon icon={faArrowLeft} /> Back to all hikes
                   </Button>

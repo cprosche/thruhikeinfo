@@ -24,7 +24,7 @@ const TrailCard = ({
   },
   units,
 }) => (
-  <Card className="mb-3 shadow-sm">
+  <Card className="mb-3 shadow-sm" id={slug}>
     <Card.Body>
       <Card.Title className="mb-1 text-bold">
         <TrailName
