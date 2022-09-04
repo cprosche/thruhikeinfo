@@ -13,6 +13,7 @@ const Header = () => (
           <Nav.Link href="/hikes">Hikes</Nav.Link>
           <Nav.Link href="/submission">Submit A Hike</Nav.Link>
           <Nav.Link href="/slang">Trail Slang</Nav.Link>
+          <Nav.Link href="/budget">Budget Calculator</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container>
