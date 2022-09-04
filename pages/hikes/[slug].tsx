@@ -11,7 +11,6 @@ import { faArrowLeft } from "../../node_modules/@fortawesome/free-solid-svg-icon
 import { countryCodes } from "../../data/countryCodes";
 import { months } from "../../data/months";
 import Head from "../../node_modules/next/head";
-import Table from "../../node_modules/react-bootstrap/esm/Table";
 import TrailInfoTable from "../../components/trail/TrailInfoTable";
 
 export const getStaticPaths = () => {
@@ -45,6 +44,7 @@ const arrayToList = (array) => {
 
 // TODO: add trail subsections as seperate trails on individual pages
 // TODO: add links to multiple maps on individual pages
+// TODO: add weather to terminuses
 const TrailPage = ({
   trail: {
     slug,

@@ -18,7 +18,6 @@ const TrailCard = ({
     type,
     length,
     offRoadLength,
-    continent,
     terminusA,
     terminusB = null,
   },
