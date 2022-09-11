@@ -71,11 +71,7 @@ const TrailPage = ({
       <Layout>
         <Container>
           <Row>
-            <Col
-              lg={{ span: 8, offset: 2 }}
-              style={{ minHeight: "78vh" }}
-              className="mb-5"
-            >
+            <Col lg={{ span: 8, offset: 2 }} className="mb-5">
               <div className="mt-4 mb-3">
                 <Link href={`/hikes#${slug}`}>
                   <Button>

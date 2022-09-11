@@ -20,7 +20,7 @@ const TrailsIndex = () => {
       <Layout>
         <Container>
           <Row>
-            <Col style={{ minHeight: "78vh" }}>
+            <Col>
               <TrailList />
             </Col>
           </Row>

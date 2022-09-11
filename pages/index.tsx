@@ -3,7 +3,6 @@ import Layout from "../components/layout/Layout";
 import TrailList from "../components/trail/TrailList";
 import Head from "../node_modules/next/head";
 
-// TODO: add next.js static props and other static site gen components
 const Home = () => (
   <>
     <Head>

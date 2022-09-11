@@ -8,7 +8,7 @@ const FourOhFour = () => (
   <Layout>
     <Container>
       <Row>
-        <Col className="text-center p-5" style={{ minHeight: "78vh" }}>
+        <Col className="text-center p-5">
           <h1>404 Page Not Found</h1>
           <h3 className="mb-4">
             Sorry, the page you are looking for doesn't exist.

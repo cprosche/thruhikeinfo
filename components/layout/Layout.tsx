@@ -4,9 +4,16 @@ import Header from "./Header";
 
 const Layout = ({ children }) => {
   return (
-    <div style={{ backgroundColor: Colors.grey, color: Colors.brown }}>
+    <div
+      className="d-flex flex-column"
+      style={{
+        minHeight: "100vh",
+        backgroundColor: Colors.grey,
+        color: Colors.brown,
+      }}
+    >
       <Header />
-      {children}
+      <div style={{ flex: 1 }}>{children}</div>
       <Footer />
     </div>
   );

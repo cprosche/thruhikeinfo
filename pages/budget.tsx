@@ -20,7 +20,7 @@ const Budget = () => (
     <Layout>
       <Container>
         <Row>
-          <Col style={{ minHeight: "78vh" }}>
+          <Col>
             <BudgetCalculator />
           </Col>
         </Row>

@@ -13,11 +13,7 @@ const Success = () => (
     <Layout>
       <Container>
         <Row>
-          <Col
-            lg={12}
-            style={{ minHeight: "78vh" }}
-            className="text-center p-5"
-          >
+          <Col lg={12} className="text-center p-5">
             <h2 className="mt-5">
               Thank you for submitting a hike or change suggestion!
             </h2>

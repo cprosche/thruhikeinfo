@@ -19,7 +19,7 @@ const Submission = () => (
     <Layout>
       <Container>
         <Row>
-          <Col lg={{ span: 6, offset: 3 }} style={{ minHeight: "78vh" }}>
+          <Col lg={{ span: 6, offset: 3 }}>
             <h1 className="text-center mt-5">Submit A New Hike</h1>
             <p className="text-center">
               With this form, you can either suggest an update to the site, to a
