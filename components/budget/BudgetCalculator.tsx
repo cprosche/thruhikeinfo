@@ -18,15 +18,6 @@ const reducer = (state, { type = null, payload = null }) => {
   }
 };
 
-const initialState = {
-  length: 2200,
-  mileage: 15,
-  gearCost: 1000,
-  travelToCost: 100,
-  travelFromCost: 100,
-  dailyCost: 35,
-};
-
 // TODO: make reusable
 // TODO: improve
 const BudgetCalculator = () => {
@@ -35,7 +26,14 @@ const BudgetCalculator = () => {
     currency: "USD",
   });
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, {
+    length: 2200,
+    mileage: 15,
+    gearCost: 1000,
+    travelToCost: 100,
+    travelFromCost: 100,
+    dailyCost: 35,
+  });
 
   const total =
     state.dailyCost * (state.length / state.mileage) + state.gearCost;
