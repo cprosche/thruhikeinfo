@@ -43,7 +43,10 @@ const BudgetCalculator = ({
   });
 
   const total =
-    state.dailyCost * (state.length / state.mileage) + state.gearCost;
+    state.dailyCost * Math.ceil(state.length / state.mileage) +
+    state.gearCost +
+    state.travelToCost +
+    state.travelFromCost;
 
   return (
     <Card className="shadow-sm">
@@ -62,7 +65,7 @@ const BudgetCalculator = ({
           onChange={(event) =>
             dispatch({
               type: SET_STATE,
-              payload: { length: event.target.value },
+              payload: { length: parseInt(event.target.value) },
             })
           }
           disabled={lengthDisabled}
@@ -77,7 +80,7 @@ const BudgetCalculator = ({
           onChange={(event) =>
             dispatch({
               type: SET_STATE,
-              payload: { mileage: event.target.value },
+              payload: { mileage: parseInt(event.target.value) },
             })
           }
         />
@@ -98,7 +101,7 @@ const BudgetCalculator = ({
             onChange={(event) =>
               dispatch({
                 type: SET_STATE,
-                payload: { dailyCost: event.target.value },
+                payload: { dailyCost: parseInt(event.target.value) },
               })
             }
           />
@@ -118,7 +121,7 @@ const BudgetCalculator = ({
             onChange={(event) =>
               dispatch({
                 type: SET_STATE,
-                payload: { gearCost: event.target.value },
+                payload: { gearCost: parseInt(event.target.value) },
               })
             }
           />
@@ -134,7 +137,7 @@ const BudgetCalculator = ({
             onChange={(event) =>
               dispatch({
                 type: SET_STATE,
-                payload: { travelToCost: event.target.value },
+                payload: { travelToCost: parseInt(event.target.value) },
               })
             }
           />
@@ -150,7 +153,7 @@ const BudgetCalculator = ({
             onChange={(event) =>
               dispatch({
                 type: SET_STATE,
-                payload: { travelFromCost: event.target.value },
+                payload: { travelFromCost: parseInt(event.target.value) },
               })
             }
           />
