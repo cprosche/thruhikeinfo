@@ -18,24 +18,28 @@ const reducer = (state, { type = null, payload = null }) => {
   }
 };
 
-const initialState = {
-  length: 2200,
-  mileage: 15,
-  gearCost: 1000,
-  travelToCost: 100,
-  travelFromCost: 100,
-  dailyCost: 35,
-};
-
-// TODO: make reusable
-// TODO: improve
-const BudgetCalculator = () => {
+// TODO: add toggle for daily/weekly/monthly allowance
+const BudgetCalculator = ({
+  length = 2200,
+  mileage = 15,
+  gearCost = 1500,
+  travelToCost = 250,
+  travelFromCost = 250,
+  dailyCost = 35,
+}) => {
   var formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   });
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, {
+    length,
+    mileage,
+    gearCost,
+    travelToCost,
+    travelFromCost,
+    dailyCost,
+  });
 
   const total =
     state.dailyCost * (state.length / state.mileage) + state.gearCost;
@@ -47,7 +51,7 @@ const BudgetCalculator = () => {
         <Card.Subtitle className="text-muted mb-4">
           Calculate how much it will cost to thru hike a trail.
         </Card.Subtitle>
-        <Form.Label>Length of trail: </Form.Label>
+        <Form.Label>Length Of Trail (miles/km): </Form.Label>
         <Form.Control
           className="mb-3"
           min={0}
@@ -61,7 +65,7 @@ const BudgetCalculator = () => {
             })
           }
         />
-        <Form.Label>Distance hiked per day: </Form.Label>
+        <Form.Label>Distance Hiked Per Day: </Form.Label>
         <Form.Control
           className="mb-3"
           min={0}
@@ -75,7 +79,13 @@ const BudgetCalculator = () => {
             })
           }
         />
-        <Form.Label>Daily: </Form.Label>
+        <Card.Subtitle className="text-muted mb-3">
+          {state.length} / {state.mileage} ={" "}
+          {Math.ceil(state.length / state.mileage)} days to complete the hike
+        </Card.Subtitle>
+        <Form.Label>
+          Daily Allowance (hotels, resupply, shuttles, beer, etc.):
+        </Form.Label>
         <InputGroup className="mb-3">
           <InputGroup.Text>$</InputGroup.Text>
           <Form.Control
@@ -91,7 +101,11 @@ const BudgetCalculator = () => {
             }
           />
         </InputGroup>
-        <Form.Label>Gear: </Form.Label>
+        <Card.Subtitle className="text-muted mb-3">
+          {Math.ceil(state.length / state.mileage)} days * ${state.dailyCost}
+          /day = ${Math.ceil(state.length / state.mileage) * state.dailyCost}
+        </Card.Subtitle>
+        <Form.Label>Total Gear Allowance: </Form.Label>
         <InputGroup className="mb-3">
           <InputGroup.Text>$</InputGroup.Text>
           <Form.Control
@@ -107,7 +121,7 @@ const BudgetCalculator = () => {
             }
           />
         </InputGroup>
-        <Form.Label>Travel to start point: </Form.Label>
+        <Form.Label>Cost Of Travel To Start Point: </Form.Label>
         <InputGroup className="mb-3">
           <InputGroup.Text>$</InputGroup.Text>
           <Form.Control
@@ -123,7 +137,7 @@ const BudgetCalculator = () => {
             }
           />
         </InputGroup>
-        <Form.Label>Travel from end point: </Form.Label>
+        <Form.Label>Cost Of Travel From End Point: </Form.Label>
         <InputGroup className="mb-4">
           <InputGroup.Text>$</InputGroup.Text>
           <Form.Control
@@ -140,7 +154,8 @@ const BudgetCalculator = () => {
           />
         </InputGroup>
         <Card.Text className="lead">
-          Total (USD): {formatter.format(total)}
+          Estimated Total Budget (USD):{" "}
+          <span style={{ fontWeight: 700 }}>{formatter.format(total)}</span>
         </Card.Text>
       </Card.Body>
     </Card>
