@@ -26,6 +26,7 @@ const BudgetCalculator = ({
   travelToCost = 250,
   travelFromCost = 250,
   dailyCost = 35,
+  lengthDisabled = false,
 }) => {
   var formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -45,7 +46,7 @@ const BudgetCalculator = ({
     state.dailyCost * (state.length / state.mileage) + state.gearCost;
 
   return (
-    <Card className="mt-5 shadow-sm">
+    <Card className="shadow-sm">
       <Card.Body>
         <Card.Title>Thru Hike Budget Calculator</Card.Title>
         <Card.Subtitle className="text-muted mb-4">
@@ -64,6 +65,7 @@ const BudgetCalculator = ({
               payload: { length: event.target.value },
             })
           }
+          disabled={lengthDisabled}
         />
         <Form.Label>Distance Hiked Per Day: </Form.Label>
         <Form.Control

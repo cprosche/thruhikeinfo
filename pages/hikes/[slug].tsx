@@ -12,6 +12,7 @@ import { countryCodes } from "../../data/countryCodes";
 import { months } from "../../data/months";
 import Head from "../../node_modules/next/head";
 import TrailInfoTable from "../../components/trail/TrailInfoTable";
+import BudgetCalculator from "../../components/budget/BudgetCalculator";
 
 export const getStaticPaths = () => {
   const paths = trails.map((trail) => {
@@ -162,7 +163,7 @@ const TrailPage = ({
                   for the {name} as its trail association.
                 </p>
               )}
-              <h3>Information</h3>
+              <h3 className="mb-3 mt-5">Information</h3>
               <TrailInfoTable
                 trail={{
                   name,
@@ -175,6 +176,8 @@ const TrailPage = ({
                   continent,
                 }}
               />
+              <h3 className="mb-3 mt-5">{name} Thru Hike Budget Calculator</h3>
+              <BudgetCalculator length={length} lengthDisabled />
             </Col>
           </Row>
         </Container>

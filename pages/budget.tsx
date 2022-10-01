@@ -20,7 +20,7 @@ const Budget = () => (
     <Layout>
       <Container>
         <Row>
-          <Col>
+          <Col className="py-5">
             <BudgetCalculator />
           </Col>
         </Row>
