@@ -4,6 +4,7 @@ import Col from "../node_modules/react-bootstrap/esm/Col";
 import Container from "../node_modules/react-bootstrap/esm/Container";
 import Row from "../node_modules/react-bootstrap/esm/Row";
 
+// TODO: make less ugly
 const About = () => {
   return (
     <>
