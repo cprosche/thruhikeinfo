@@ -14,7 +14,6 @@ import TrailCard from "./TrailCard";
 // TODO: trail filter options set from url params
 // TODO: filter by region/state
 // TODO: filter by time to complete
-// TODO: type filter
 
 // TODO: big project - add map
 // TODO: sort by terminus distance from certain post code???
@@ -42,6 +41,8 @@ const initialState = {
   minLength: 0,
   maxLength: Infinity,
   trailsList: trails.sort((a, b) => a.length - b.length),
+  showLinear: true,
+  showLoop: true,
 };
 
 const reducer = (state, { type = null, payload = null }) => {
@@ -106,6 +107,12 @@ const filterTrailsList = (state: any, payload: any) => {
         return false;
       });
     }
+    if (!updatedState.showLinear) {
+      trailsList = trailsList.filter((trail) => trail.type != "Linear");
+    }
+    if (!updatedState.showLoop) {
+      trailsList = trailsList.filter((trail) => trail.type != "Loop");
+    }
   }
   return trailsList;
 };
@@ -167,10 +174,7 @@ const TrailList = () => {
                 checked={state.units === "kilometers"}
               />
             </Col>
-            <Col
-              xs={12}
-              className="mb-2 d-flex justify-content-start"
-            >
+            <Col xs={12} className="mb-2 d-flex justify-content-start">
               <Form.Check
                 type="switch"
                 id="custom-switch"
@@ -290,6 +294,40 @@ const TrailList = () => {
                       </InputGroup>
                     </Col>
                   </Row>
+                </Col>
+                <Col md={6} className="d-flex align-items-center">
+                  <Form.Check
+                    id="linear-checkbox"
+                    className="mb-3"
+                    inline
+                    label="Linear"
+                    name="trail-types"
+                    type="checkbox"
+                    checked={state.showLinear}
+                    onChange={() =>
+                      dispatch({
+                        type: SET_FILTER,
+                        payload: { showLinear: !state.showLinear },
+                      })
+                    }
+                    disabled={!state.showLoop}
+                  />
+                  <Form.Check
+                    id="loop-checkbox"
+                    className="mb-3"
+                    inline
+                    label="Loop"
+                    name="trail-types"
+                    type="checkbox"
+                    checked={state.showLoop}
+                    onChange={() =>
+                      dispatch({
+                        type: SET_FILTER,
+                        payload: { showLoop: !state.showLoop },
+                      })
+                    }
+                    disabled={!state.showLinear}
+                  />
                 </Col>
               </>
             )}

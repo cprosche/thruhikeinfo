@@ -43,7 +43,7 @@ const arrayToList = (array) => {
   return array.join(", the ").replace(/, ((?:.(?!, ))+)$/, ", and $1");
 };
 
-// TODO: add trail subsections as seperate trails on individual pages
+// TODO: add trail subsections as separate trails on individual pages
 // TODO: add links to multiple maps on individual pages
 // TODO: add weather to terminuses
 const TrailPage = ({
