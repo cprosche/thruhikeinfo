@@ -6,7 +6,7 @@ import Container from "../node_modules/react-bootstrap/esm/Container";
 import Image from "../node_modules/react-bootstrap/esm/Image";
 import Row from "../node_modules/react-bootstrap/esm/Row";
 
-// TODO: add more words
+// TODO: add more words for SEO
 const Home = () => (
   <>
     <Head>
