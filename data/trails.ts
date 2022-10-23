@@ -30,12 +30,13 @@ export interface ITrail {
   length: number; // miles
   offRoadLength: number;
   continent: string;
+  farOutGuideUrl: string;
   trailAssociation: ITrailAssociation | null;
   terminusA: ITerminus;
   terminusB?: ITerminus;
 }
 
-// TODO: add more trails
+// TODO: add trails from far out
 // TODO: add milford track
 // TODO: add south american hikes
 // TODO: add more asian hikes
@@ -49,6 +50,7 @@ export const trails: ITrail[] = [
     length: 2190,
     offRoadLength: 2190,
     continent: "North America",
+    farOutGuideUrl: "https://faroutguides.com/appalachian-trail-map/",
     trailAssociation: {
       name: "Appalachian Trail Conservancy",
       url: "https://appalachiantrail.org/",
@@ -84,6 +86,7 @@ export const trails: ITrail[] = [
     length: 3100,
     offRoadLength: 2170,
     continent: "North America",
+    farOutGuideUrl: "https://faroutguides.com/continental-divide-trail-map/",
     trailAssociation: {
       name: "Continental Divide Trail Coalition",
       url: "https://continentaldividetrail.org/",
@@ -119,6 +122,7 @@ export const trails: ITrail[] = [
     length: 2650,
     offRoadLength: 2650,
     continent: "North America",
+    farOutGuideUrl: "https://faroutguides.com/pacific-crest-trail-map/",
     trailAssociation: {
       name: "Pacific Crest Trail Association",
       url: "https://www.pcta.org/",
@@ -154,6 +158,7 @@ export const trails: ITrail[] = [
     length: 800,
     offRoadLength: null,
     continent: "North America",
+    farOutGuideUrl: "https://faroutguides.com/arizona-trail-map/",
     trailAssociation: {
       name: "Arizona Trail Association",
       url: "https://aztrail.org/",
@@ -189,6 +194,7 @@ export const trails: ITrail[] = [
     length: 567,
     offRoadLength: 567,
     continent: "North America",
+    farOutGuideUrl: "https://faroutguides.com/colorado-trail-map/",
     trailAssociation: {
       name: "Colorado Trail Foundation",
       url: "https://coloradotrail.org/",
@@ -224,6 +230,7 @@ export const trails: ITrail[] = [
     length: 1200,
     offRoadLength: 640,
     continent: "North America",
+    farOutGuideUrl: "https://faroutguides.com/ice-age-trail-map/",
     trailAssociation: {
       name: "Ice Age Trail Alliance",
       url: "https://www.iceagetrail.org/",
@@ -258,6 +265,7 @@ export const trails: ITrail[] = [
     type: "Linear",
     length: 1500,
     continent: "North America",
+    farOutGuideUrl: "https://faroutguides.com/florida-trail-map/",
     trailAssociation: {
       name: "Florida Trail Association",
       url: "https://floridatrail.org/",
@@ -294,6 +302,7 @@ export const trails: ITrail[] = [
     length: 310,
     offRoadLength: 310,
     continent: "North America",
+    farOutGuideUrl: null,
     trailAssociation: {
       name: "Superior Hiking Trail Association",
       url: "https://superiorhiking.org/",
@@ -329,6 +338,7 @@ export const trails: ITrail[] = [
     length: 1850,
     offRoadLength: null,
     continent: "Oceania",
+    farOutGuideUrl: "https://faroutguides.com/te-araroa-map/",
     trailAssociation: {
       name: "Te Araroa Trust",
       url: "https://www.teararoa.org.nz/",
@@ -364,6 +374,7 @@ export const trails: ITrail[] = [
     length: 1200,
     offRoadLength: null,
     continent: "North America",
+    farOutGuideUrl: "https://faroutguides.com/pacific-northwest-trail-map/",
     trailAssociation: {
       name: "Pacific Northwest Trail Association",
       url: "https://www.pnt.org/",
@@ -399,6 +410,7 @@ export const trails: ITrail[] = [
     length: 4800,
     offRoadLength: 3188,
     continent: "North America",
+    farOutGuideUrl: null,
     trailAssociation: {
       name: "North Country Trail Association",
       url: "https://northcountrytrail.org/",
@@ -434,6 +446,7 @@ export const trails: ITrail[] = [
     length: 273,
     offRoadLength: 273,
     continent: "North America",
+    farOutGuideUrl: "https://faroutguides.com/long-trail-map/",
     trailAssociation: {
       name: "Green Mountain Club",
       url: "https://www.greenmountainclub.org/the-long-trail/",
@@ -469,6 +482,7 @@ export const trails: ITrail[] = [
     length: 211,
     offRoadLength: 211,
     continent: "North America",
+    farOutGuideUrl: "https://faroutguides.com/john-muir-trail-map/",
     trailAssociation: {
       name: "Pacific Crest Trail Association",
       url: "https://www.pcta.org/discover-the-trail/john-muir-trail/",
@@ -503,6 +517,7 @@ export const trails: ITrail[] = [
     length: 335,
     offRoadLength: null,
     continent: "North America",
+    farOutGuideUrl: "https://faroutguides.com/pinhoti-trail-map/",
     trailAssociation: {
       name: "Pinhoti Trail Alliance",
       url: "http://www.pinhotitrailalliance.org",
@@ -537,6 +552,7 @@ export const trails: ITrail[] = [
     length: 93,
     offRoadLength: 93,
     continent: "North America",
+    farOutGuideUrl: "https://faroutguides.com/wonderland-trail-map/",
     trailAssociation: {
       name: "Washington Trails Association",
       url: "https://www.wta.org/go-hiking/hikes/wonderland-trail-thru-hike",
@@ -561,6 +577,7 @@ export const trails: ITrail[] = [
     offRoadLength: 42,
     continent: "North America",
     trailAssociation: null,
+    farOutGuideUrl: "https://faroutguides.com/timberline-trail-map/",
     terminusA: {
       name: "Timberline Lodge",
       country: "US",
@@ -580,6 +597,7 @@ export const trails: ITrail[] = [
     length: 165,
     offRoadLength: null,
     continent: "North America",
+    farOutGuideUrl: "https://faroutguides.com/tahoe-rim-trail-map/",
     trailAssociation: {
       name: "Tahoe Rim Trail Association",
       url: "https://tahoerimtrail.org/",
@@ -603,6 +621,7 @@ export const trails: ITrail[] = [
     length: 280,
     offRoadLength: 280,
     continent: "Europe",
+    farOutGuideUrl: null,
     trailAssociation: null,
     terminusA: {
       name: "Northern Terminus",
@@ -635,6 +654,7 @@ export const trails: ITrail[] = [
     length: 700,
     offRoadLength: null,
     continent: "North America",
+    farOutGuideUrl: "https://faroutguides.com/great-divide-trail-map/",
     trailAssociation: {
       name: "Great Divide Trail Association",
       url: "https://greatdividetrail.com/",
@@ -669,6 +689,7 @@ export const trails: ITrail[] = [
     length: 40,
     offRoadLength: 40,
     continent: "Australia",
+    farOutGuideUrl: "https://faroutguides.com/overland-track-map/",
     trailAssociation: {
       name: "Tasmanian Parks and Wildlife Service",
       url: "https://parks.tas.gov.au/explore-our-parks/cradle-mountain/overland-track",
@@ -703,6 +724,7 @@ export const trails: ITrail[] = [
     length: 623,
     offRoadLength: null,
     continent: "Australia",
+    farOutGuideUrl: "https://faroutguides.com/bibbulmun-track-map/",
     trailAssociation: {
       name: "Bibbulmun Track Foundation",
       url: "https://www.bibbulmuntrack.org.au/",
@@ -738,6 +760,7 @@ export const trails: ITrail[] = [
     offRoadLength: 120,
     continent: "Asia",
     trailAssociation: null,
+    farOutGuideUrl: null,
     terminusA: {
       name: "Eastern Terminus",
       country: "NP",
@@ -769,6 +792,7 @@ export const trails: ITrail[] = [
     length: 105,
     offRoadLength: 105,
     continent: "Europe",
+    farOutGuideUrl: "https://faroutguides.com/tour-du-mont-blanc-map/",
     trailAssociation: null,
     terminusA: {
       name: "Les Houches Trailhead",
@@ -791,6 +815,7 @@ export const trails: ITrail[] = [
     offRoadLength: null,
     continent: "Europe",
     trailAssociation: null,
+    farOutGuideUrl: "https://faroutguides.com/camino-de-santiago-map/",
     terminusA: {
       name: "Pilgrim Information Office SJPP",
       country: "FR",

@@ -57,6 +57,7 @@ const TrailPage = ({
     trailAssociation,
     type,
     continent,
+    farOutGuideUrl
   },
 }: IProps) => {
   const defaultMileage = 15;
@@ -174,6 +175,7 @@ const TrailPage = ({
                   trailAssociation,
                   type,
                   continent,
+                  farOutGuideUrl
                 }}
               />
               <h3 className="mb-3 mt-5">{name} Thru Hike Budget Calculator</h3>

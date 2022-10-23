@@ -14,6 +14,7 @@ import TrailCard from "./TrailCard";
 // TODO: trail filter options set from url params
 // TODO: filter by region/state
 // TODO: filter by time to complete
+// TODO: add far out guide filter
 
 // TODO: big project - add map
 // TODO: sort by terminus distance from certain post code???

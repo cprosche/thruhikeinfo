@@ -9,7 +9,7 @@ const Budget = () => (
   <>
     <Head>
       <title>
-        Thru Hike Budget Calculator | Thru Hike Info | Calulate the cost of a
+        Thru Hike Budget Calculator | Thru Hike Info | Calculate the cost of a
         thru hike
       </title>
       <meta

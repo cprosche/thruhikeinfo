@@ -12,6 +12,7 @@ const TrailInfoTable = ({
     trailAssociation,
     type,
     continent,
+    farOutGuideUrl,
   },
 }) => {
   return (
@@ -40,6 +41,12 @@ const TrailInfoTable = ({
         <tr>
           <td>Continent</td>
           <td>{continent}</td>
+        </tr>
+        <tr>
+          <td>Far Out Guide</td>
+          <td>
+            {farOutGuideUrl ? <a href={farOutGuideUrl} target="_blank">{name} Map</a> : "None"}
+          </td>
         </tr>
         {trailAssociation && (
           <tr>
