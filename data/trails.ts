@@ -874,4 +874,28 @@ export const trails: ITrail[] = [
       startDate: null,
     },
   },
+  {
+    slug: "czech-trail",
+    name: "Czech Trail",
+    type: "Loop",
+    length: 1210,
+    offRoadLength: null,
+    continent: "Europe",
+    trailAssociation: {
+      name: "Czech Trail",
+      url: "https://www.stezkaceskem.cz/en/",
+    },
+    farOutGuideUrl: "https://faroutguides.com/czech-trail/",
+    terminusA: {
+      name: "Czech-German Border Duty Free",
+      country: "CZ",
+      city: "Rozvadov",
+      region: "Rozvadov",
+      location: {
+        latitude: 49.66006998957655, 
+        longitude: 12.535180100099485, 
+      },
+      startDate: null,
+    },
+  },
 ];
