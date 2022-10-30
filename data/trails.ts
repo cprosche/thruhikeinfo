@@ -839,4 +839,39 @@ export const trails: ITrail[] = [
       startDate: { month: 4, day: 1 },
     },
   },
+  {
+    slug: "allegany-trail",
+    name: "Allegany Trail",
+    type: "Linear",
+    length: 311,
+    offRoadLength: null,
+    continent: "North America",
+    trailAssociation: {
+      name: "West Virginia Scenic Trails Association",
+      url: "https://www.wvscenictrails.org/",
+    },
+    farOutGuideUrl: "https://faroutguides.com/allegheny-trail-map/",
+    terminusA: {
+      name: "Northern Trailhead",
+      country: "US",
+      city: "Bruceton Mills",
+      region: "West Virginia",
+      location: {
+        latitude: 39.72100152917134, 
+        longitude: -79.70061157741559,
+      },
+      startDate: null,
+    },
+    terminusB: {
+      name: "Southern Terminus",
+      country: "US",
+      city: "Ripplemead",
+      region: "Virginia",
+      location: {
+        latitude: 37.44111084433142, 
+        longitude: -80.61919160070696,
+      },
+      startDate: null,
+    },
+  },
 ];
