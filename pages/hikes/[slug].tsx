@@ -13,8 +13,8 @@ import { months } from "../../data/months";
 import Head from "../../node_modules/next/head";
 import TrailInfoTable from "../../components/trail/TrailInfoTable";
 import BudgetCalculator from "../../components/budget/BudgetCalculator";
-import { useState } from "react";
 import TrailReview from "../../components/trail/TrailReview";
+import { useIsSignupAvailableQuery } from "../../rtk/trailsApi";
 
 export const getStaticPaths = () => {
   const paths = trails.map((trail) => {
@@ -63,12 +63,7 @@ const TrailPage = ({
   },
 }: IProps) => {
   const defaultMileage = 15;
-
-  const [showSignup, setShowSignup] = useState(false);
-
-  fetch("https://thruhikeinfo-signup.up.railway.app/ping")
-    .then((res) => res.status === 200 && setShowSignup(true))
-    .catch((res) => setShowSignup(false));
+  const { data: signupPingData } = useIsSignupAvailableQuery("");
 
   return (
     <>
@@ -187,7 +182,7 @@ const TrailPage = ({
                   farOutGuideUrl,
                 }}
               />
-              {showSignup && (
+              {signupPingData && (
                 <>
                   <h3 className="mb-3 mt-5">Reviews</h3>
                   <TrailReview />
