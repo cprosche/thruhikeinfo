@@ -13,6 +13,8 @@ import { months } from "../../data/months";
 import Head from "../../node_modules/next/head";
 import TrailInfoTable from "../../components/trail/TrailInfoTable";
 import BudgetCalculator from "../../components/budget/BudgetCalculator";
+import TrailReview from "../../components/trail/TrailReview";
+import { useIsSignupAvailableQuery } from "../../rtk/trailsApi";
 
 export const getStaticPaths = () => {
   const paths = trails.map((trail) => {
@@ -57,10 +59,12 @@ const TrailPage = ({
     trailAssociation,
     type,
     continent,
-    farOutGuideUrl
+    farOutGuideUrl,
   },
 }: IProps) => {
   const defaultMileage = 15;
+  const { data: signupPingData } = useIsSignupAvailableQuery("");
+
   return (
     <>
       <Head>
@@ -175,9 +179,15 @@ const TrailPage = ({
                   trailAssociation,
                   type,
                   continent,
-                  farOutGuideUrl
+                  farOutGuideUrl,
                 }}
               />
+              {signupPingData && (
+                <>
+                  <h3 className="mb-3 mt-5">Reviews</h3>
+                  <TrailReview />
+                </>
+              )}
               <h3 className="mb-3 mt-5">{name} Thru Hike Budget Calculator</h3>
               <BudgetCalculator length={length} lengthDisabled />
             </Col>
