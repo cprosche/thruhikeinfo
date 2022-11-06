@@ -90,9 +90,7 @@ const TrailCard = ({
           className="btn btn-primary"
           style={{ textTransform: "capitalize", fontWeight: 700 }}
         >
-          <Button>
-            More details <FontAwesomeIcon icon={faArrowRight} />
-          </Button>
+          More details <FontAwesomeIcon icon={faArrowRight} />
         </Link>
       </ListGroup.Item>
     </ListGroup>
