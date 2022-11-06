@@ -6,7 +6,6 @@ import ListGroup from "../../node_modules/react-bootstrap/esm/ListGroup";
 import { months } from "../../data/months";
 import RegionText from "./RegionText";
 import Link from "../../node_modules/next/link";
-import Button from "../../node_modules/react-bootstrap/esm/Button";
 import { FontAwesomeIcon } from "../../node_modules/@fortawesome/react-fontawesome/index";
 import { faArrowRight } from "../../node_modules/@fortawesome/free-solid-svg-icons/index";
 
