@@ -18,7 +18,7 @@ const Slang = () => {
         <meta
         name="description"
         content="A dictionary of hiking trail slang. Seasoned thru hikers have a lingo all their own. Please let us know if there is some slang we missed."
-      ></meta>
+      />
       </Head>
       <Layout>
         <Container>

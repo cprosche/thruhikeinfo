@@ -14,7 +14,7 @@ const Submission = () => (
       <meta
         name="description"
         content="Submit a new hike, new trail slang, or correct info that is already here. If there is something you think we missed, please let us know!"
-      ></meta>
+      />
     </Head>
     <Layout>
       <Container>

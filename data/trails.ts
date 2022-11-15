@@ -36,11 +36,8 @@ export interface ITrail {
   terminusB?: ITerminus;
 }
 
-// TODO: add trails from far out
-// TODO: add milford track
 // TODO: add south american hikes
 // TODO: add more asian hikes
-// TODO: add more aliases
 export const trails: ITrail[] = [
   {
     slug: "at",
@@ -857,7 +854,7 @@ export const trails: ITrail[] = [
       city: "Bruceton Mills",
       region: "West Virginia",
       location: {
-        latitude: 39.72100152917134, 
+        latitude: 39.72100152917134,
         longitude: -79.70061157741559,
       },
       startDate: null,
@@ -868,7 +865,7 @@ export const trails: ITrail[] = [
       city: "Ripplemead",
       region: "Virginia",
       location: {
-        latitude: 37.44111084433142, 
+        latitude: 37.44111084433142,
         longitude: -80.61919160070696,
       },
       startDate: null,
@@ -892,10 +889,45 @@ export const trails: ITrail[] = [
       city: "Rozvadov",
       region: "Rozvadov",
       location: {
-        latitude: 49.66006998957655, 
-        longitude: 12.535180100099485, 
+        latitude: 49.66006998957655,
+        longitude: 12.535180100099485,
       },
       startDate: null,
+    },
+  },
+  {
+    slug: "milford-track",
+    name: "Milford Track",
+    type: "Linear",
+    length: 33.2,
+    offRoadLength: null,
+    continent: "Oceania",
+    trailAssociation: {
+      name: "Department of Conservation",
+      url: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/milford-track/",
+    },
+    farOutGuideUrl: "https://app.faroutguides.com/guides/Milford%20Track",
+    terminusA: {
+      name: "Glade Wharf",
+      country: "NZ",
+      city: "Southland",
+      region: "Southland",
+      location: {
+        latitude: -44.93173374465815,
+        longitude: 167.9301133426562,
+      },
+      startDate: { month: 11, day: 1 },
+    },
+    terminusB: {
+      name: "Sandfly Point",
+      country: "NZ",
+      city: "Southland",
+      region: "Southland",
+      location: {
+        latitude: -44.68352534856122, 
+        longitude: 167.9024617368894,
+      },
+      startDate: { month: 11, day: 1 },
     },
   },
 ];

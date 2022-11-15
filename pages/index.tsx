@@ -16,7 +16,7 @@ const Home = () => (
       <meta
         name="description"
         content="Information to help you plan your next big thru hike. If you can't find the info you are looking for here, let us know and we will add it!"
-      ></meta>
+      />
     </Head>
     <Layout>
       <Hero />

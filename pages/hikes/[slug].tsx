@@ -72,7 +72,7 @@ const TrailPage = ({
         <meta
           name="description"
           content={`The ${name} is a ${length} mile long trail in ${continent}.`}
-        ></meta>
+        />
       </Head>
       <Layout>
         <Container>
