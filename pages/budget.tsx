@@ -15,7 +15,7 @@ const Budget = () => (
       <meta
         name="description"
         content="Calculate how much it will cost to thru hike a trail. The cost of a thru hike can be surprising..."
-      ></meta>
+      />
     </Head>
     <Layout>
       <Container>

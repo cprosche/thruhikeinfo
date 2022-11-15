@@ -15,7 +15,7 @@ const TrailsIndex = () => {
         <meta
           name="description"
           content="Infomation to help you plan your next big thru hike. If you can't find the info you are looking for here, let us know and we will add it!"
-        ></meta>
+        />
       </Head>
       <Layout>
         <Container>
